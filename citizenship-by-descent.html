@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canadian Citizenship by Descent — Canadian Immigration Concierge</title>
+  <meta name="description" content="Bill C-3 changed everything. Millions of Americans with Canadian ancestry may already be citizens — without ever applying. No residency, no exam. Just the right documents.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .hero-badge {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1.25rem;
+    }
+    /* Before / After */
+    .before-after-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 700px) { .before-after-grid { grid-template-columns: 1fr; } }
+    .ba-card { border-radius: var(--radius); padding: 2rem; }
+    .ba-card.before { background: #f2f1ee; border: 1px solid var(--border); }
+    .ba-card.after { background: var(--red-light); border: 2px solid var(--red); }
+    .ba-era {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; margin-bottom: 0.75rem;
+    }
+    .ba-card.before .ba-era { color: var(--light); }
+    .ba-card.after .ba-era { color: var(--red); }
+    .ba-card h3 { font-size: 1.15rem; margin-bottom: 0.85rem; }
+    .ba-card.before h3 { color: var(--charcoal); }
+    .ba-card.after h3 { color: var(--red); }
+    .ba-card p { font-size: 0.92rem; color: var(--mid); line-height: 1.75; margin: 0; }
+
+    /* Benefits */
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 900px) { .benefit-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .benefit-grid { grid-template-columns: 1fr; } }
+
+    /* Qualify / Service — 3-col */
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) { .three-grid { grid-template-columns: 1fr; } }
+
+    .info-card {
+      background: #ffffff;
+      border: 1.5px solid #dde4ef;
+      border-left: 4px solid #C41230;
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .info-card .icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .info-card h4 { font-size: 1.05rem; font-weight: 700; color: #1C3557; margin-bottom: 0.6rem; }
+    .info-card p { font-size: 15px; color: #666666; line-height: 1.7; margin: 0; }
+    /* Navy section info cards */
+    .section.alt-bg .info-card {
+      background: rgba(255,255,255,0.10);
+      border: 1.5px solid rgba(255,255,255,0.18);
+      border-left: 4px solid rgba(255,255,255,0.35);
+    }
+    .section.alt-bg .info-card h4 { color: #ffffff; }
+    .section.alt-bg .info-card p { color: rgba(255,255,255,0.65); }
+
+    /* Pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr; } }
+    .pricing-card {
+      background: #ffffff;
+      border: 1.5px solid #dde4ef;
+      border-left: 4px solid #C41230;
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .pricing-card.featured {
+      border: 2px solid var(--red);
+      position: relative;
+    }
+    .pricing-card.featured::before {
+      content: 'Core Service';
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--red);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 14px;
+      border-radius: 20px;
+    }
+    .pricing-card .p-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .pricing-card .p-tier { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light); margin-bottom: 0.3rem; }
+    .pricing-card.featured .p-tier { color: var(--red); }
+    .pricing-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.5rem; }
+    .pricing-card .price { font-size: 2rem; font-weight: 700; color: var(--charcoal); font-family: 'Inter', sans-serif; margin-bottom: 0.15rem; }
+    .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--mid); }
+    .pricing-card .price-note { font-size: 0.8rem; color: var(--light); margin-bottom: 1.25rem; }
+    .pricing-card ul { list-style: none; padding: 0; margin: 0 0 1.25rem; display: flex; flex-direction: column; gap: 0.55rem; }
+    .pricing-card ul li { font-size: 15px; color: var(--mid); padding-left: 1.25rem; position: relative; line-height: 1.5; }
+    .pricing-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--red); font-weight: 700; }
+    .pricing-card .p-note { font-size: 0.8rem; color: var(--light); font-style: italic; margin-bottom: 1.25rem; line-height: 1.5; }
+
+    /* Alert box */
+    .alert-box {
+      background: #fff8ed;
+      border: 1px solid #f0c87a;
+      border-radius: var(--radius);
+      padding: 1.1rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .alert-box p { font-size: 0.88rem; color: #7a5918; margin: 0; line-height: 1.6; }
+
+
+    /* Disclaimer */
+    .disclaimer-box {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+    }
+    .disclaimer-box p { font-size: 0.78rem; color: var(--light); line-height: 1.75; margin: 0; }
+
+    .cbd-hero .btn:hover { background: #2E5F9A !important; border-color: #ffffff !important; }
+    @media (max-width: 768px) {
+      .french-section { padding: 3rem 1.5rem !important; }
+      .french-section .fc-grid { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 768px) { .cbd-intro-strip { padding: 3rem 1.5rem !important; } }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCE BAR -->
+<div class="announce-bar">Talk to a Canadian relocation advisor today &mdash; <a href="tel:18887940705" style="color:#fff;text-decoration:none;">1-888-794-0705</a></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Canada Immigration Concierge"></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <div class="nav-menu" id="navMenu">
+      <a href="index.html" class="nav-link">Home</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dropdown-toggle" aria-expanded="false">Canadian Citizenship <span class="nav-chevron">&#9660;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="citizenship-by-descent.html" class="nav-dropdown-item">Canadian Citizenship</a>
+          <a href="immigration.html" class="nav-dropdown-item">Immigration Pathways</a>
+        </div>
+      </div>
+      <a href="packages.html" class="nav-link">Packages &amp; Pricing</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="corporate.html" class="nav-link">Corporate</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dropdown-toggle" aria-expanded="false">About <span class="nav-chevron">&#9660;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="about.html" class="nav-dropdown-item">About</a>
+          <a href="moving-to-canada.html" class="nav-dropdown-item">Moving to Canada</a>
+          <a href="faq.html" class="nav-dropdown-item">FAQ</a>
+        </div>
+      </div>
+      <a href="contact.html" class="btn btn-red">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<style>
+  .cbd-hero { background-image: none !important; overflow: hidden; }
+  .cbd-hero::before { background: rgba(0,0,0,0.35) !important; }
+  .cbd-hero-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(1.4); z-index:0; }
+  .cbd-hero .page-hero-inner { position:relative; z-index:1; }
+</style>
+<section class="page-hero cbd-hero">
+  <img class="cbd-hero-img" src="images/maple-leaf-child.jpg" alt="Canadian maple leaf">
+  <div class="page-hero-inner">
+    <div class="hero-badge">🍁 Bill C-3 — In Force December 15, 2025</div>
+    <h1 style="font-weight:800;color:#ffffff;text-align:center;max-width:780px;margin:0 auto 1rem;">American With Canadian Ancestry? You May Already Hold Dual Citizenship.</h1>
+    <p style="font-size:18px;font-weight:400;color:rgba(255,255,255,0.80);max-width:660px;margin:0 auto;line-height:1.8;text-align:center;">Millions of Americans are discovering they may already be Canadian citizens — without ever having applied. Canada's Bill C-3 removed the generational limit on citizenship by descent. If even one ancestor in your family tree was born or naturalized in Canada — no matter how many generations back — you may qualify right now. We help you find the records, build the lineage, and get your application ready with confidence.</p>
+    <div class="btn-group" style="display:flex;justify-content:center;align-items:center;gap:1rem;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-primary" style="background:#1C3557;color:#ffffff;border:2px solid #ffffff;font-weight:700;">Book a $50 Ancestry Call →</a>
+      <a href="#how-it-works" class="btn btn-ghost-white" style="background:#1C3557;color:#ffffff;border:2px solid #ffffff;font-weight:700;">See How It Works ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO CTA STRIP -->
+<section class="cbd-intro-strip" style="background:#1C3557;padding:5rem 3rem;text-align:center;">
+  <p style="max-width:680px;margin:0 auto 2rem;font-size:20px;font-weight:500;color:rgba(255,255,255,0.85);line-height:1.8;">Most paths to dual citizenship take years and can be expensive. But this one may already belong to you. Canadian citizenship by descent requires no residency, no language test, and no exam. If you have a Canadian ancestor, the law may already recognize you as a citizen. You just need someone who knows where to look.</p>
+  <div style="width:60px;height:4px;background:#C41230;margin:1.5rem auto;"></div>
+  <h2 style="font-size:26px;font-weight:800;color:#ffffff;margin-bottom:0.75rem;">Find Out If You Qualify</h2>
+  <p style="max-width:520px;margin:0 auto 1.75rem;font-size:16px;color:rgba(255,255,255,0.75);line-height:1.7;">Book a 15-minute call for $50. We'll review what you have, tell you what's missing, and give you a clear picture of what comes next. Your $50 is credited toward any service.</p>
+  <a href="contact.html" style="display:inline-block;background:#C41230;color:#ffffff;font-size:15px;font-weight:700;padding:14px 32px;border-radius:6px;text-decoration:none;">Book Your $50 Ancestry Call →</a>
+</section>
+
+<!-- WHAT CHANGED -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Bill C-3</div>
+      <h2>The Law That Changed <em>Everything</em></h2>
+    </div>
+    <div class="before-after-grid fade-in">
+      <div class="ba-card before">
+        <div class="ba-era">Before December 2025</div>
+        <h3>The Wall Most Families Hit</h3>
+        <p>Since 2009, Canadian citizenship could only be inherited by the first generation born outside Canada. If your parent was also born in the US — even with a Canadian grandparent — you were locked out. Thousands of families with deep Canadian roots were told they simply didn't qualify.</p>
+      </div>
+      <div class="ba-card after">
+        <div class="ba-era">After Bill C-3</div>
+        <h3>The Wall Came Down</h3>
+        <p>For anyone born before December 15, 2025, the generational limit no longer exists. Citizenship can now flow through grandparents, great-grandparents, and beyond — provided you can document an unbroken line of descent from a Canadian ancestor and no one in that line formally renounced their citizenship.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY DUAL CITIZENSHIP -->
+<section class="section alt-bg">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Why It Matters</div>
+      <h2>What Canadian Citizenship <em>Actually Gets You</em></h2>
+      <p class="intro">This isn't just a piece of paper. It's a second passport with real, lasting benefits — for you and your family.</p>
+    </div>
+    <div class="benefit-grid fade-in-group">
+      <div class="info-card">
+        <div class="icon">🛂</div>
+        <h4>The Right to Enter — No Matter What</h4>
+        <p>Every Canadian citizen holds a constitutionally guaranteed right to enter, remain in, and leave Canada under Section 6 of the Charter of Rights and Freedoms. Non-citizens can be turned away at the border for a single past conviction. Citizens cannot.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">🏥</div>
+        <h4>Healthcare That Doesn't Bill You</h4>
+        <p>Establish residency in any Canadian province and you're eligible for publicly funded healthcare — doctor visits, hospital stays, surgery — at no direct cost. Most provinces require approximately three months of residency to activate coverage.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">💼</div>
+        <h4>Work Anywhere, For Anyone</h4>
+        <p>No work permits. No employer sponsorship. No immigration paperwork. Canadian citizens can live and work in any province, take any job, start a business, or freelance — it's a constitutional right.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">🏠</div>
+        <h4>Buy Property as a Local</h4>
+        <p>Canada's foreign buyer restrictions do not apply to citizens. While non-citizens and non-permanent residents face purchasing limitations, Canadian citizens can buy a home, condo, or land anywhere in the country without restriction.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">🎓</div>
+        <h4>University at Canadian Rates</h4>
+        <p>Domestic tuition averages around $7,700 per year. International students at the same institutions pay over $41,000. For you or your children, Canadian citizenship means access to world-class universities at a fraction of the international cost.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">💰</div>
+        <h4>A Pension System That Includes You</h4>
+        <p>Work and live in Canada and you contribute to — and eventually collect from — the Canada Pension Plan and Old Age Security. Citizenship is the prerequisite. The earlier you establish it, the better.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO QUALIFIES -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Eligibility</div>
+      <h2>Three Things You Need <em>to Qualify</em></h2>
+      <p class="intro">Eligibility under Bill C-3 comes down to these three elements. If all three are in place, you may already be a Canadian citizen under the law.</p>
+    </div>
+    <div class="three-grid fade-in-group">
+      <div class="info-card">
+        <div class="icon">🍁</div>
+        <h4>One Canadian Ancestor</h4>
+        <p>At least one person in your family line — a grandparent, great-grandparent, or further back — must have been born in Canada or naturalized as a Canadian citizen. That person is your anchor.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">🔗</div>
+        <h4>An Unbroken Documentary Chain</h4>
+        <p>Every generation between that ancestor and you must be connected through official records — birth certificates, baptismal records, and marriage certificates that establish the parent-child relationship at each step.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">✅</div>
+        <h4>No Formal Renunciation</h4>
+        <p>No one in your lineage can have formally renounced their Canadian citizenship through an official process with the Canadian government. Simply moving to the US, becoming an American citizen, or never visiting Canada does not count as renunciation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="section alt-bg">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Our Services</div>
+      <h2>How We <em>Help</em></h2>
+      <p class="intro">Gathering the records for a Canadian citizenship by descent application is the hardest part — and the part where most people get stuck. We do the digging, the translating, the ordering, and the organizing so your application goes in complete, correct, and ready for IRCC review. We work in English and French and are deeply familiar with archives across every Canadian province and the US records that connect families across the border. We do not provide legal advice, fill out government forms, or represent you before any government body.</p>
+    </div>
+    <div class="three-grid fade-in-group">
+      <div class="info-card">
+        <div class="icon">📋</div>
+        <h4>Record Review &amp; Gap Analysis</h4>
+        <p>Already started gathering documents? We review what you have, match it against IRCC's publicly available requirements, and give you a clear picture of exactly what's missing and where to find it.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">🔍</div>
+        <h4>Ancestry Research &amp; Record Retrieval</h4>
+        <p>We search publicly available databases and archives across Canada and the United States to locate the vital records in your lineage. We work fluently with French-language documents — critical for anyone with Quebec ancestry — and we are familiar with provincial archives from BC to Newfoundland. For records restricted to direct relatives, we prepare the request paperwork so you can sign and submit. No family tree yet? We build one.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">📦</div>
+        <h4>Application Package Assembly &amp; Shipping</h4>
+        <p>Once every record is in hand, we organize, label, and assemble your complete package in the correct order per IRCC's publicly available checklist. We make colour copies, verify photo requirements, and ship everything to the IRCC processing centre via tracked courier. You complete your own CIT 0001 form — we handle everything else.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRENCH CANADIAN SPECIALITY -->
+<section class="french-section" style="background:#ffffff;padding:5rem 3rem;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#C41230;margin-bottom:0.75rem;">🇫🇷 Our Specialization</div>
+      <h2 style="font-size:32px;font-weight:800;color:#1C3557;max-width:820px;margin:0 auto;line-height:1.3;">We Specialize in French-Canadian Research — <em>Spécialité : Recherche franco-canadienne</em></h2>
+      <div style="width:60px;height:4px;background:#C41230;margin:1.25rem auto 2rem;"></div>
+    </div>
+    <div class="fc-grid" style="display:grid;grid-template-columns:1fr 1.6fr;gap:2.5rem;align-items:start;">
+      <div style="background:#1C3557;border-radius:12px;padding:2.5rem;">
+        <div style="font-size:52px;font-weight:800;color:#ffffff;line-height:1;margin-bottom:0.5rem;">10 Million</div>
+        <div style="font-size:15px;color:rgba(255,255,255,0.75);margin-bottom:2rem;line-height:1.5;">Americans estimated to have French-Canadian ancestry</div>
+        <div style="font-size:52px;font-weight:800;color:#C41230;line-height:1;margin-bottom:0.5rem;">#1</div>
+        <div style="font-size:15px;color:rgba(255,255,255,0.75);line-height:1.5;">Largest ancestry group eligible under Bill C-3</div>
+      </div>
+      <div>
+        <p style="font-size:16px;color:#444444;line-height:1.8;margin:0 0 1rem;">An estimated 10 million Americans trace their roots to Quebec, Acadia, and the communities built by the nearly one million French Canadians who came to New England between 1840 and 1930. This is the single largest ancestry group eligible under Bill C-3 — and the most complex to research.</p>
+        <p style="font-size:16px;color:#444444;line-height:1.8;margin:0 0 1rem;">Quebec's civil registration system is unlike any other province. Original records are in French, notarial documents require specialized reading, and IRCC applies strict evidentiary standards to Quebec-origin documentation. Getting it right the first time matters.</p>
+        <p style="font-size:16px;color:#444444;line-height:1.8;margin:0;">Our team works fluently in English and French. We read original parish records, civil registrations, and notarial documents directly — no translation delays, no missed details. If your family name is Tremblay, Gagnon, Bouchard, Leblanc, or any of the hundreds of Quebec surnames that crossed the border generations ago — or if your grandmother spoke French at the dinner table — we know exactly where to look.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Pricing</div>
+      <h2>What It <em>Costs</em></h2>
+      <p class="intro">Straightforward pricing. No surprises. Your $50 consultation fee is applied as a credit toward any service you book.</p>
+    </div>
+    <div class="alert-box fade-in">
+      <p>⚠️ <strong>Important:</strong> The final decision on every citizenship application rests solely with Immigration, Refugees and Citizenship Canada (IRCC). We locate and organize documents — we cannot guarantee any outcome.</p>
+    </div>
+    <div class="pricing-grid fade-in-group">
+
+      <div class="pricing-card">
+        <div class="p-icon">💬</div>
+        <div class="p-tier">Start Here</div>
+        <h3>Ancestry Eligibility Call</h3>
+        <div class="price">$50 <span>USD</span></div>
+        <div class="price-note">15 minutes · Video call</div>
+        <ul>
+          <li>Walk through what documents you currently have</li>
+          <li>Compare your records against IRCC's publicly available checklist</li>
+          <li>Identify exactly what's missing</li>
+          <li>Get a research estimate for next steps</li>
+        </ul>
+        <p class="p-note">Your $50 is credited toward any service you book.</p>
+        <a href="contact.html" class="btn btn-primary" style="display:block;text-align:center">Book Now →</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="p-icon">🔍</div>
+        <div class="p-tier">Core Service</div>
+        <h3>Ancestry Research &amp; Record Retrieval</h3>
+        <div class="price">$60 <span>/ hour</span></div>
+        <div class="price-note">Typical 3–4 generation chain: 5–10 hours ($300–$600)</div>
+        <ul>
+          <li>Search Canadian and US archives and publicly available databases</li>
+          <li>Work with French-language records — essential for Quebec and Acadian ancestry</li>
+          <li>Order copies of publicly available records from provincial archives</li>
+          <li>Prepare restricted-record request paperwork for you to sign and submit</li>
+          <li>Build or verify your complete family tree and lineage chain</li>
+          <li>Deliver all records organized and ready for your application</li>
+        </ul>
+        <p class="p-note">Archive fees, government copy fees, and shipping billed at cost — no markup. Written estimate provided after consultation.</p>
+        <a href="contact.html" class="btn btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="p-icon">📦</div>
+        <div class="p-tier">Final Step</div>
+        <h3>Package Assembly &amp; Shipping</h3>
+        <div class="price">$239 <span>USD</span></div>
+        <div class="price-note">Per applicant · Once all records are in hand</div>
+        <ul>
+          <li>Organize and label all documents per IRCC's published checklist</li>
+          <li>Produce colour copies as required</li>
+          <li>Confirm photo and identity document specifications</li>
+          <li>Assemble the complete physical package</li>
+          <li>Ship via tracked courier to the IRCC Case Processing Centre</li>
+        </ul>
+        <p class="p-note">You complete your own CIT 0001 application form. We take care of everything else.</p>
+        <a href="contact.html" class="btn btn-ghost" style="display:block;text-align:center">Inquire →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">FAQ</div>
+      <h2>Your Questions, <em>Answered</em></h2>
+    </div>
+    <div class="faq-list fade-in">
+
+      <div class="faq-item">
+        <button class="faq-question">What exactly is this service?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">We are a genealogical research service that helps Americans gather the records needed to file their own Canadian citizenship by descent application. We locate records in Canadian and US archives, order copies, build family trees, and organize your complete package for IRCC submission. We do not provide legal advice, fill out government forms, or represent you before any government body. You file your own application — we make sure it's complete.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">My family left Canada over a century ago. Can I still qualify?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Possibly yes. Under Bill C-3 there is no generational limit for anyone born before December 15, 2025. As long as you can document an unbroken line of descent from a Canadian-born or naturalized ancestor, and no one in that line formally renounced citizenship, you may qualify. Every case is different — IRCC makes the final call.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">My grandparent became a US citizen. Did that cancel their Canadian citizenship?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">In most cases, no. Unless your grandparent formally renounced their Canadian citizenship through an official process with the Canadian government, simply acquiring US citizenship did not extinguish their Canadian status. The rules varied by era, but formal renunciation was generally required.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Do I have to give up my US citizenship?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">No. Both countries recognize and permit dual citizenship. You can hold a US and Canadian passport simultaneously.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Is there a language test or citizenship exam?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">No. Citizenship by descent means you are already a citizen under the law — you are applying for a certificate proving that status. No language tests, knowledge exams, or residency requirements apply to those born before December 15, 2025.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Is there a deadline?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">No deadline exists for filing. However, IRCC processing times are currently running approximately 11 months and climbing as applications surge — so the sooner you apply, the sooner you receive your certificate.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">What documents will I need?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Per IRCC's publicly available checklist: proof of your Canadian ancestor's birth or naturalization; a long-form birth certificate for each person in the lineage showing their parents' names; and marriage certificates where surnames changed. Older or more complex lineages may also require census records, baptismal records, or other corroborating evidence. Our research service locates and retrieves many of these on your behalf.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Can you guarantee my application will be approved?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">No — and any service that tells you otherwise is misleading you. The final decision on every application rests entirely with IRCC. What we can do is give you the most complete, well-organized application possible — which materially improves the likelihood of a clean, timely review.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Are you immigration lawyers or consultants?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">No. We are a genealogical research and relocation service. We are not lawyers and we are not Regulated Canadian Immigration Consultants (RCICs). We do not provide legal advice or represent you before IRCC. For legal questions, we can connect you with our trusted RCIC and immigration lawyer partners.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Will Canadian citizenship trigger Canadian taxes?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Canadian taxation is based on residency, not citizenship. Remaining in the United States after obtaining Canadian citizenship generally does not create Canadian tax obligations. We recommend consulting a cross-border tax professional for your specific situation.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Does citizenship mean I can access Canadian healthcare?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Provincial healthcare in Canada is based on residency. Once you establish residency in a Canadian province — typically requiring approximately three months — you become eligible to enroll in that province's public health insurance plan.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="cta-section dark">
+  <h2>Find Out If You Already Have a <em>Second Passport Waiting</em></h2>
+  <p>Book a 15-minute call for $50. We'll review what you have, tell you what's missing, and give you a clear picture of what comes next. Your $50 is credited toward any service.</p>
+  <a href="contact.html" class="btn btn-primary">Book Your $50 Ancestry Call →</a>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="section" style="padding-top:2rem;padding-bottom:2.5rem">
+  <div class="container">
+    <div class="disclaimer-box">
+      <p>Canadian Immigration Concierge is a relocation and genealogical research service. We are not a law firm, not lawyers, and not Regulated Canadian Immigration Consultants (RCICs). We do not provide legal advice, immigration consulting, or representation of any kind before IRCC or any other government body. We do not complete government forms on behalf of clients. We cannot guarantee outcomes — all citizenship decisions rest solely with IRCC. For legal questions, please consult a licensed Canadian immigration lawyer or RCIC. Bill C-3 came into force December 15, 2025. Information on this page reflects publicly available information as of June 2026. Laws and procedures may change. For official information visit Canada.ca.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap"><img src="images/logo.png" alt="Canada Immigration Concierge" class="footer-logo"></div>
+        <p>Your life in Canada — fully supported.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="immigration.html">Immigration Applications</a>
+        <a href="citizenship-by-descent.html">Canadian Citizenship</a>
+        <a href="packages.html">Packages &amp; Pricing</a>
+        <a href="moving-to-canada.html">Moving to Canada</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Canadian Immigration Concierge · <a href="mailto:hello@canadianimmigrationconcierge.ca">hello@canadianimmigrationconcierge.ca</a></p>
+      <p class="footer-legal">Non-legal services only. Not a law firm or immigration consultancy. Licensed immigration services provided by independent RCIC and lawyer partners. All prices in USD.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

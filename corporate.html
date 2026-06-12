@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corporate Relocation Services — Canadian Immigration Concierge</title>
+  <meta name="description" content="End-to-end corporate relocation support for employees moving to Canada. Dedicated advisors, immigration referrals, housing, schools, pets, and HR coordination. Flat-fee USD pricing.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .corp-hero { background-image: none !important; }
+    .corp-hero::before { background: rgba(0,0,0,0.35) !important; }
+    .corp-hero-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+    .corp-hero .page-hero-inner { position:relative; z-index:2; }
+    .corp-hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1.25rem;
+    }
+    .corp-stat-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 2rem;
+      margin-top: 2rem;
+    }
+    .corp-stat-bar span {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 640px) { .compare-grid { grid-template-columns: 1fr; } }
+    .compare-card {
+      border-radius: 10px;
+      padding: 2rem;
+    }
+    .compare-card.without {
+      background: #f8f8f6;
+      border: 1.5px solid #dde4ef;
+    }
+    .compare-card.with {
+      background: #EBF0F7;
+      border: 2px solid #1C3557;
+    }
+    .compare-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 1rem; }
+    .compare-card.without h3 { color: #888; }
+    .compare-card.with h3 { color: #1C3557; }
+    .compare-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+    .compare-card li { font-size: 15px; line-height: 1.6; padding-left: 1.4rem; position: relative; }
+    .compare-card.without li { color: #888; }
+    .compare-card.without li::before { content: '✗'; position: absolute; left: 0; color: #bbb; font-weight: 700; }
+    .compare-card.with li { color: #1C3557; }
+    .compare-card.with li::before { content: '✓'; position: absolute; left: 0; color: #C41230; font-weight: 700; }
+
+    .services-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) { .services-two-col { grid-template-columns: 1fr; } }
+    .services-col {
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,255,255,0.18);
+      border-radius: 10px;
+      padding: 1.75rem;
+    }
+    .services-col h3 { color: #ffffff; font-size: 1.05rem; font-weight: 700; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.15); }
+    .services-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.55rem; }
+    .services-col li { font-size: 14px; color: rgba(255,255,255,0.80); line-height: 1.6; padding-left: 1.25rem; position: relative; }
+    .services-col li::before { content: '→'; position: absolute; left: 0; color: #C41230; font-weight: 700; font-size: 12px; top: 2px; }
+
+    .family-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) { .family-cards { grid-template-columns: 1fr; } }
+
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) { .partner-grid { grid-template-columns: 1fr; } }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) { .why-grid { grid-template-columns: 1fr; } }
+
+    .corp-pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) { .corp-pricing-grid { grid-template-columns: 1fr; } }
+
+    .corp-pricing-card {
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,255,255,0.20);
+      border-radius: 10px;
+      padding: 1.75rem;
+      position: relative;
+    }
+    .corp-pricing-card.featured {
+      background: #ffffff;
+      border: 2px solid #ffffff;
+    }
+    .corp-pricing-card.featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: #C41230;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 14px;
+      border-radius: 20px;
+    }
+    .corp-pricing-card .p-tier { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.3rem; }
+    .corp-pricing-card .p-tier { color: rgba(255,255,255,0.55); }
+    .corp-pricing-card.featured .p-tier { color: #C41230; }
+    .corp-pricing-card h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.4rem; color: #ffffff; }
+    .corp-pricing-card.featured h3 { color: #1C3557; }
+    .corp-pricing-card .price { font-size: 2.2rem; font-weight: 800; font-family: 'Inter', sans-serif; margin-bottom: 0.15rem; color: #ffffff; }
+    .corp-pricing-card.featured .price { color: #1C3557; }
+    .corp-pricing-card .price small { font-size: 1rem; font-weight: 400; }
+    .corp-pricing-card .price-note { font-size: 0.8rem; color: rgba(255,255,255,0.50); margin-bottom: 1.25rem; }
+    .corp-pricing-card.featured .price-note { color: #888; }
+    .corp-pricing-card ul { list-style: none; padding: 0; margin: 0 0 1.5rem; display: flex; flex-direction: column; gap: 0.55rem; }
+    .corp-pricing-card li { font-size: 14px; color: rgba(255,255,255,0.75); padding-left: 1.25rem; position: relative; line-height: 1.5; }
+    .corp-pricing-card.featured li { color: #444; }
+    .corp-pricing-card li::before { content: '✓'; position: absolute; left: 0; color: #C41230; font-weight: 700; }
+    .corp-pricing-card.featured li::before { color: #C41230; }
+    .corp-pricing-card .corp-btn {
+      display: block;
+      text-align: center;
+      background: #C41230;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    .corp-pricing-card.featured .corp-btn { background: #1C3557; }
+    .corp-pricing-card .corp-btn:hover { opacity: 0.9; }
+
+    .cta-red {
+      background: #C41230;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .cta-red h2 { color: #ffffff; font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 1rem; }
+    .cta-red p { color: rgba(255,255,255,0.85); font-size: 1rem; max-width: 600px; margin: 0 auto 2rem; line-height: 1.8; }
+    .cta-red .corp-cta-btn {
+      display: inline-block;
+      background: #ffffff;
+      color: #1C3557;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .cta-red .corp-cta-btn:hover { background: #f0f0f0; }
+    .cta-red .cta-smallprint { color: rgba(255,255,255,0.60); font-size: 13px; margin-top: 1.25rem; }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCE BAR -->
+<div class="announce-bar">Talk to a Canadian relocation advisor today &mdash; <a href="tel:18887940705" style="color:#fff;text-decoration:none;">1-888-794-0705</a></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Canada Immigration Concierge"></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <div class="nav-menu" id="navMenu">
+      <a href="index.html" class="nav-link">Home</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dropdown-toggle" aria-expanded="false">Canadian Citizenship <span class="nav-chevron">&#9660;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="citizenship-by-descent.html" class="nav-dropdown-item">Canadian Citizenship</a>
+          <a href="immigration.html" class="nav-dropdown-item">Immigration Pathways</a>
+        </div>
+      </div>
+      <a href="packages.html" class="nav-link">Packages &amp; Pricing</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="corporate.html" class="nav-link">Corporate</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dropdown-toggle" aria-expanded="false">About <span class="nav-chevron">&#9660;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="about.html" class="nav-dropdown-item">About</a>
+          <a href="moving-to-canada.html" class="nav-dropdown-item">Moving to Canada</a>
+          <a href="faq.html" class="nav-dropdown-item">FAQ</a>
+        </div>
+      </div>
+      <a href="contact.html" class="btn btn-red">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- SECTION 1: HERO -->
+<section class="page-hero corp-hero">
+  <img class="corp-hero-img" src="images/corporate-hero.jpg" alt="Corporate relocation services">
+  <div class="page-hero-inner">
+    <div class="eyebrow">🏢 Corporate &amp; Employer Services</div>
+    <h1>Your Employee's Relocation, Handled.<br><em>So They Can Focus on the Job.</em></h1>
+    <p>Moving an employee to Canada involves immigration paperwork, housing, schools, healthcare, banking, pets, and a family that needs to feel at home. We manage every detail — so your HR team doesn't have to, and your new hire shows up ready to work.</p>
+    <div class="btn-group" style="justify-content:center;gap:1rem;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-primary">Book a Corporate Consultation →</a>
+      <a href="#corporate-pricing" class="btn btn-ghost-white">See Our Packages ↓</a>
+    </div>
+    <div class="corp-stat-bar">
+      <span>🌎 Any province in Canada</span>
+      <span>🗣 English · French · Spanish</span>
+      <span>⚡ 24-hour response, 7 days a week</span>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: THE PROBLEM -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">The Cost of Getting It Wrong</div>
+      <h2>A Bad Relocation Is Expensive.<br><em>A Great One Pays for Itself.</em></h2>
+      <p class="intro">The cost of a failed relocation — a new hire who quits within the first year because their family never settled in — is estimated at 50–200% of that employee's annual salary. Housing stress, a spouse who can't find work, kids in the wrong school, a pet stuck in paperwork — these aren't minor inconveniences. They're retention risks. We eliminate them before they start.</p>
+    </div>
+    <div class="compare-grid fade-in">
+      <div class="compare-card without">
+        <h3>Without us</h3>
+        <ul>
+          <li>HR spends hours answering settlement questions</li>
+          <li>Employee navigates housing, banking, and healthcare alone</li>
+          <li>Family feels unsupported and overwhelmed</li>
+          <li>Relocation drags on for months</li>
+        </ul>
+      </div>
+      <div class="compare-card with">
+        <h3>With us</h3>
+        <ul>
+          <li>HR has one point of contact for everything</li>
+          <li>Employee has a dedicated advisor from day one</li>
+          <li>Family and pets are supported at every step</li>
+          <li>Relocation is structured, on-timeline, and stress-free</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: WHAT WE DO -->
+<section class="section alt-bg">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Our Services</div>
+      <h2>Everything Your Employee Needs —<br><em>From First Call to Fully Settled</em></h2>
+      <p class="intro" style="color:rgba(255,255,255,0.75);">Our dedicated advisors manage the complete relocation journey. For every service outside our scope, we coordinate directly with our trusted partner network — so your employee never has to figure out who to call.</p>
+    </div>
+    <div class="services-two-col fade-in">
+      <div class="services-col">
+        <h3>For the Employee &amp; Family</h3>
+        <ul>
+          <li>Dedicated personal advisor from day one</li>
+          <li>Immigration pathway assessment and RCIC referral</li>
+          <li>Housing search guidance — short-term and permanent</li>
+          <li>Neighbourhood and school district matching</li>
+          <li>School enrolment support for children</li>
+          <li>Healthcare registration and provincial health card guidance</li>
+          <li>SIN registration and banking setup guidance</li>
+          <li>Driver's licence transfer and vehicle importation</li>
+          <li>Pet import paperwork and vet guidance</li>
+          <li>Spouse/partner employment support and career resources</li>
+          <li>LGBTQ+-affirming support available</li>
+          <li>French-language support for Quebec relocations</li>
+          <li>Utilities, internet, and services setup</li>
+          <li>Local community and social orientation</li>
+          <li>Moving company coordination and timing guidance</li>
+          <li>90-day post-arrival check-ins and ongoing support</li>
+        </ul>
+      </div>
+      <div class="services-col">
+        <h3>For the HR Team</h3>
+        <ul>
+          <li>Single point of contact for all relocation questions</li>
+          <li>Regular progress updates and milestone reports</li>
+          <li>Escalation handling — we resolve issues before they reach HR</li>
+          <li>Pre-move planning call to set expectations and timelines</li>
+          <li>Onboarding coordination — employee arrives ready to work</li>
+          <li>Invoicing in USD with clear flat-fee structure</li>
+          <li>Volume pricing for multiple simultaneous relocations</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: FAMILIES & PETS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Families &amp; Pets</div>
+      <h2>We Specialize in Families and Pets —<br><em>The Details That Make or Break a Relocation</em></h2>
+      <p class="intro">A relocation isn't just about the employee. It's about their partner, their children, and yes — their pets. We support the whole household, because we know that's what determines whether your new hire stays long-term.</p>
+    </div>
+    <div class="family-cards fade-in">
+      <div class="value-card">
+        <div class="icon" style="font-size:2rem;margin-bottom:0.75rem;">🧒</div>
+        <h4>Families</h4>
+        <p>We support the whole family — not just the employee. School research, childcare options, spouse employment support, healthcare registration, and community orientation are all included. A settled family means a retained employee.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon" style="font-size:2rem;margin-bottom:0.75rem;">🐾</div>
+        <h4>Pets</h4>
+        <p>We guide your employee through Canada's pet import requirements — vet health certificates, breed restrictions by province, airline-approved crating, and cross-border documentation — so four-legged family members arrive safely and on schedule.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon" style="font-size:2rem;margin-bottom:0.75rem;">👨‍👩‍👧</div>
+        <h4>The Whole Picture</h4>
+        <p>A relocation succeeds when the whole household feels settled. We take responsibility for every person and every detail — because a smooth landing for the family is the foundation of a productive, long-term employee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: PARTNER NETWORK -->
+<section class="section alt-bg">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Our Partner Network</div>
+      <h2>One Advisor.<br><em>An Entire Network Behind Them.</em></h2>
+      <p class="intro" style="color:rgba(255,255,255,0.75);">Your employee's dedicated advisor coordinates directly with our trusted partner network across Canada — so that every specialist your employee needs is already vetted, briefed, and ready. No cold calls. No starting from scratch.</p>
+    </div>
+    <div class="partner-grid fade-in">
+      <div class="info-card">
+        <div class="icon" style="font-size:1.75rem;margin-bottom:0.75rem;">🏛️</div>
+        <h4>Immigration &amp; Legal</h4>
+        <p>Licensed RCICs and immigration lawyers for work permits, Express Entry, intra-company transfers, and family sponsorship. All referrals are free.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon" style="font-size:1.75rem;margin-bottom:0.75rem;">🏡</div>
+        <h4>Real Estate</h4>
+        <p>Vetted realtors in every major Canadian city who specialize in newcomer needs — rental and purchase — with no referral fees charged to your employee.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon" style="font-size:1.75rem;margin-bottom:0.75rem;">💰</div>
+        <h4>Cross-Border Tax &amp; Finance</h4>
+        <p>Cross-border tax advisors, Canadian banking specialists, U.S. tax obligation guidance for Canadians, and investment account transition support.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon" style="font-size:1.75rem;margin-bottom:0.75rem;">⚖️</div>
+        <h4>Employment Law</h4>
+        <p>Employment lawyers familiar with Canadian labour law, non-compete clauses, offer letter review, and executive compensation structures for relocating hires.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon" style="font-size:1.75rem;margin-bottom:0.75rem;">🐾</div>
+        <h4>Pet Relocation Specialists</h4>
+        <p>USDA-accredited vets, licensed pet transport brokers, and customs documentation specialists for complex pet imports — including large animals and exotic breeds.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon" style="font-size:1.75rem;margin-bottom:0.75rem;">🎓</div>
+        <h4>Education Consultants</h4>
+        <p>Private school advisors, tutoring networks, French immersion guidance, and university application support for relocating families with school-age children.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: WHY CHOOSE US -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Why HR Teams Choose Us</div>
+      <h2>Why HR Teams Choose<br><em>Canadian Immigration Concierge</em></h2>
+    </div>
+    <div class="why-grid fade-in">
+      <div class="value-card">
+        <div class="icon" style="font-size:1.75rem;margin-bottom:0.75rem;">🎯</div>
+        <h4>Employee Retention</h4>
+        <p>Supported employees stay. We eliminate the settlement stress that drives early-year attrition — protecting your hiring investment and reducing costly re-recruitment.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon" style="font-size:1.75rem;margin-bottom:0.75rem;">⏱</div>
+        <h4>HR Time Savings</h4>
+        <p>Your HR team gets one point of contact and structured updates. No fielding questions about healthcare cards, school districts, or pet import rules.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon" style="font-size:1.75rem;margin-bottom:0.75rem;">🏙️</div>
+        <h4>Any Province in Canada</h4>
+        <p>We support relocations to every province and major city — Toronto, Vancouver, Calgary, Ottawa, Montreal, Halifax, and beyond. One provider, coast to coast.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon" style="font-size:1.75rem;margin-bottom:0.75rem;">💰</div>
+        <h4>Transparent Flat-Fee Pricing</h4>
+        <p>No surprise invoices. Our flat-fee corporate packages are clear upfront, billed in USD, with volume discounts for three or more simultaneous relocations.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon" style="font-size:1.75rem;margin-bottom:0.75rem;">🗣</div>
+        <h4>English · French · Spanish</h4>
+        <p>Our advisors work fluently in all three languages. Essential for employees relocating to Quebec, francophone communities, or Spanish-speaking households.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon" style="font-size:1.75rem;margin-bottom:0.75rem;">🤝</div>
+        <h4>One Point of Contact</h4>
+        <p>Your employee has one dedicated advisor throughout their entire relocation. No being passed around. No starting over. One trusted person who knows their file.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: PRICING -->
+<section class="section alt-bg" id="corporate-pricing">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Corporate Packages</div>
+      <h2>Simple, Transparent<br><em>Corporate Pricing</em></h2>
+      <p class="intro" style="color:rgba(255,255,255,0.75);">Flat-fee USD pricing per employee. Volume discounts available for three or more employees relocating simultaneously. All packages include a dedicated advisor, regular HR updates, and access to our full partner network.</p>
+    </div>
+    <div class="corp-pricing-grid fade-in">
+
+      <div class="corp-pricing-card">
+        <div class="p-tier">Essential</div>
+        <h3>Essential</h3>
+        <div class="price">$2,499 <small>USD</small></div>
+        <div class="price-note">per employee · one-time</div>
+        <ul>
+          <li>Pre-arrival planning call (1 hr)</li>
+          <li>Immigration pathway assessment + RCIC referral</li>
+          <li>Housing search guidance (30-day support)</li>
+          <li>Healthcare, SIN &amp; banking setup guidance</li>
+          <li>School and childcare research</li>
+          <li>Moving timeline coordination</li>
+          <li>30-day post-arrival support</li>
+          <li>HR progress updates</li>
+        </ul>
+        <a href="contact.html" class="corp-btn">Get Started →</a>
+      </div>
+
+      <div class="corp-pricing-card featured">
+        <div class="p-tier">Complete</div>
+        <h3>Complete</h3>
+        <div class="price">$3,999 <small>USD</small></div>
+        <div class="price-note">per employee · one-time</div>
+        <ul>
+          <li>Everything in Essential, plus:</li>
+          <li>60-day dedicated advisor support</li>
+          <li>Pet import guidance (if applicable)</li>
+          <li>Spouse/partner employment resources</li>
+          <li>Neighbourhood &amp; lifestyle matching</li>
+          <li>Driver's licence &amp; vehicle import guidance</li>
+          <li>Utilities &amp; services setup</li>
+          <li>Bi-weekly HR progress reports</li>
+        </ul>
+        <a href="contact.html" class="corp-btn">Get Started →</a>
+      </div>
+
+      <div class="corp-pricing-card">
+        <div class="p-tier">Concierge</div>
+        <h3>Concierge</h3>
+        <div class="price">$5,999 <small>USD</small></div>
+        <div class="price-note">per employee · one-time</div>
+        <ul>
+          <li>Everything in Complete, plus:</li>
+          <li>90-day full-service support</li>
+          <li>Priority advisor access (same-day response)</li>
+          <li>Private school advisory</li>
+          <li>Cross-border tax partner introduction</li>
+          <li>Employment law partner (executive hires)</li>
+          <li>Unlimited HR updates &amp; escalation support</li>
+          <li>90-day post-arrival check-ins</li>
+        </ul>
+        <a href="contact.html" class="corp-btn">Get Started →</a>
+      </div>
+
+    </div>
+    <p style="text-align:center;margin-top:1.75rem;font-size:0.88rem;color:rgba(255,255,255,0.55);">Volume pricing available for 3+ employees. <a href="contact.html" style="color:rgba(255,255,255,0.75);text-decoration:underline;">Contact us for a custom corporate quote.</a></p>
+  </div>
+</section>
+
+<!-- SECTION 8: CTA -->
+<div class="cta-red">
+  <h2>Let's Talk About <em>Your Team</em></h2>
+  <p>Whether you're relocating one employee or ten, we'd love to understand your needs and put together the right plan. Our corporate consultations are free and without obligation.</p>
+  <a href="contact.html" class="corp-cta-btn">Book a Free Corporate Consultation →</a>
+  <p class="cta-smallprint">Direct line for HR teams — hello@canadianimmigrationconcierge.ca · 1-888-794-0705 · Response within 24 hours</p>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap"><img src="images/logo.png" alt="Canada Immigration Concierge" class="footer-logo"></div>
+        <p>Your life in Canada — fully supported.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="immigration.html">Immigration Applications</a>
+        <a href="citizenship-by-descent.html">Canadian Citizenship</a>
+        <a href="packages.html">Packages &amp; Pricing</a>
+        <a href="moving-to-canada.html">Moving to Canada</a>
+        <a href="corporate.html">Corporate</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Canadian Immigration Concierge · <a href="mailto:hello@canadianimmigrationconcierge.ca">hello@canadianimmigrationconcierge.ca</a></p>
+      <p class="footer-legal">Non-legal services only. Not a law firm or immigration consultancy. Licensed immigration services provided by independent RCIC and lawyer partners. All prices in USD.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

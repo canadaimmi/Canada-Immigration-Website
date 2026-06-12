@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packages &amp; Pricing — Canadian Immigration Concierge</title>
+  <meta name="description" content="Simple, transparent pricing for Canadian immigration concierge services. Flat-fee packages, monthly plans, à la carte services, and consultations. All prices in USD.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ── Packages page overrides ── */
+    .pkg-page-hero { min-height: 700px !important; background-image: none !important; }
+    .pkg-page-hero::before { background: rgba(0,0,0,0.35) !important; }
+    .pkg-hero-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+    .pkg-page-hero .page-hero-inner { position:relative; z-index:2; }
+    @media (max-width: 768px) { .pkg-page-hero { min-height: 380px !important; } }
+
+    /* Consultation cards */
+    .consult-grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2rem; }
+    @media (max-width: 768px) { .consult-grid-3 { grid-template-columns: 1fr; } }
+    .consult-card-v2 {
+      background: #ffffff;
+      border: 1.5px solid #dde4ef;
+      border-left: 4px solid #C41230;
+      border-radius: 10px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .consult-card-v2.featured {
+      border: 2px solid #1C3557;
+      border-left: 4px solid #C41230;
+      position: relative;
+    }
+    .consult-card-v2.featured::before {
+      content: 'Most Popular';
+      position: absolute; top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: #1C3557; color: #fff;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 3px 14px; border-radius: 20px;
+    }
+    .consult-card-v2 h3 { font-size: 1.1rem; font-weight: 800; color: #1C3557; margin-bottom: 0.35rem; }
+    .consult-card-v2 .price { font-size: 2rem; font-weight: 800; color: #1C3557; font-family: 'Inter', sans-serif; margin-bottom: 0.75rem; line-height: 1; }
+    .consult-card-v2 .price small { font-size: 1rem; font-weight: 400; color: #888; }
+    .consult-card-v2 p { font-size: 15px; color: #666; line-height: 1.7; flex: 1; margin-bottom: 1.25rem; }
+    .consult-card-v2 .btn { display: block; text-align: center; }
+
+    /* Every package includes box — v2 */
+    .pkg-includes-v2 {
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .pkg-includes-v2 > h4 { font-size: 18px; font-weight: 800; color: #ffffff; text-align: center; margin-bottom: 1.5rem; }
+    .pkg-includes-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 640px) { .pkg-includes-cards { grid-template-columns: 1fr; } }
+    .pkg-inc-card {
+      background: rgba(255,255,255,0.10);
+      border: 1.5px solid rgba(255,255,255,0.20);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .pkg-inc-card .inc-icon { font-size: 28px; margin-bottom: 0.75rem; display: block; }
+    .pkg-inc-card h5 { font-size: 15px; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif; }
+    .pkg-inc-card p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.7; margin: 0; }
+    .pkg-includes-footer { text-align: center; }
+    .pkg-includes-footer .inc-note { font-size: 14px; font-style: italic; color: rgba(255,255,255,0.75); margin-bottom: 1rem; }
+    .pkg-includes-footer .inc-note a { color: rgba(255,255,255,0.75); text-decoration: underline; }
+    .btn-white-outline {
+      display: inline-block;
+      background: transparent;
+      color: #ffffff;
+      border: 1.5px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-white-outline:hover { background: #ffffff; color: #1C3557; }
+
+    /* Package cards on navy bg — explicit colours for every element */
+    .section.alt-bg .package-card {
+      background: #ffffff !important;
+      border: 1.5px solid #dde4ef !important;
+      border-radius: 12px !important;
+      padding: 2rem !important;
+    }
+    .section.alt-bg .package-card.featured { border-color: #C41230 !important; }
+    .section.alt-bg .package-card h3 { color: #1C3557 !important; font-weight: 800 !important; font-size: 20px !important; }
+    .section.alt-bg .package-card .price { color: #C41230 !important; font-weight: 800 !important; font-size: 28px !important; }
+    .section.alt-bg .package-card .price small { color: #888888 !important; font-size: 14px !important; font-weight: 400 !important; }
+    .section.alt-bg .package-card .tagline { color: #1C3557 !important; font-weight: 600 !important; font-size: 15px !important; font-style: italic !important; }
+    .section.alt-bg .package-card p { color: #444444 !important; font-size: 15px !important; line-height: 1.7 !important; }
+    .section.alt-bg .package-card li { color: #444444 !important; font-size: 14px !important; line-height: 1.7 !important; }
+    .section.alt-bg .package-card li::before { color: #C41230 !important; }
+    .section.alt-bg .package-card a:not(.btn) { color: #2E5F9A !important; }
+    .section.alt-bg .package-card .badge { background: #C41230 !important; color: #ffffff !important; font-size: 11px !important; font-weight: 700 !important; border-radius: 20px !important; }
+    .section.alt-bg .package-card .btn { display: block !important; width: 100% !important; text-align: center !important; background: #C41230 !important; color: #ffffff !important; font-weight: 700 !important; border-radius: 6px !important; border-color: #C41230 !important; box-sizing: border-box !important; }
+    .section.alt-bg .package-card .btn:hover { background: #8B1A11 !important; border-color: #8B1A11 !important; }
+    .pkg-card-note { font-size: 13px !important; color: #666666 !important; font-style: italic !important; line-height: 1.6 !important; margin-bottom: 1.25rem !important; }
+
+    /* À la carte price list */
+    .alacarte-list { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; border: 1.5px solid #dde4ef; border-radius: 10px; overflow: hidden; }
+    .alacarte-row { display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 1.25rem; gap: 1rem; }
+    .alacarte-row:not(:last-child) { border-bottom: 1px dotted #dde4ef; }
+    .alacarte-row:nth-child(even) { background: #f8f9fc; }
+    .alacarte-row .name { font-size: 15px; color: #444; }
+    .alacarte-row .price { font-size: 15px; font-weight: 700; color: #1C3557; white-space: nowrap; }
+
+    /* Ancestry callout */
+    .ancestry-callout {
+      background: #1C3557;
+      border-left: 6px solid #C41230;
+      border-radius: 12px;
+      padding: 2.5rem 3rem;
+      max-width: 820px;
+      margin: 3rem auto 0;
+      text-align: center;
+    }
+    .ancestry-callout .badge-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.60); margin-bottom: 0.75rem; }
+    .ancestry-callout h3 { font-size: 1.6rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem; }
+    .ancestry-callout p { font-size: 15px; color: rgba(255,255,255,0.78); line-height: 1.8; margin-bottom: 1.75rem; }
+    .ancestry-callout .btn-primary { background: #C41230; color: #fff; border-color: #C41230; }
+    @media (max-width: 640px) { .ancestry-callout { padding: 2rem 1.5rem; } }
+
+    /* Page footer note */
+    .pkg-footer-note { text-align: center; padding: 2rem 1.5rem; font-size: 13px; color: #999; line-height: 1.7; max-width: 700px; margin: 0 auto; }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCE BAR -->
+<div class="announce-bar">Talk to a Canadian relocation advisor today &mdash; <a href="tel:18887940705" style="color:#fff;text-decoration:none;">1-888-794-0705</a></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Canada Immigration Concierge"></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <div class="nav-menu" id="navMenu">
+      <a href="index.html" class="nav-link">Home</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dropdown-toggle" aria-expanded="false">Canadian Citizenship <span class="nav-chevron">&#9660;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="citizenship-by-descent.html" class="nav-dropdown-item">Canadian Citizenship</a>
+          <a href="immigration.html" class="nav-dropdown-item">Immigration Pathways</a>
+        </div>
+      </div>
+      <a href="packages.html" class="nav-link">Packages &amp; Pricing</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="corporate.html" class="nav-link">Corporate</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dropdown-toggle" aria-expanded="false">About <span class="nav-chevron">&#9660;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="about.html" class="nav-dropdown-item">About</a>
+          <a href="moving-to-canada.html" class="nav-dropdown-item">Moving to Canada</a>
+          <a href="faq.html" class="nav-dropdown-item">FAQ</a>
+        </div>
+      </div>
+      <a href="contact.html" class="btn btn-red">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-hero pkg-page-hero">
+  <img class="pkg-hero-img" src="images/packages-hero.jpg" alt="Packages & Pricing">
+  <div class="page-hero-inner" style="text-align:center;">
+    <div class="eyebrow">Packages &amp; Pricing</div>
+    <h1>Simple, Transparent Pricing</h1>
+    <p>Every package begins with a full assessment of your immigration situation and includes a dedicated personal advisor who draws from our complete services menu — based on what your situation actually needs.</p>
+    <div class="btn-group" style="justify-content:center;">
+      <a href="contact.html" class="btn btn-primary">Book a Free 15-Min Call →</a>
+      <a href="#packages" class="btn btn-ghost-white">See Packages ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1: CONSULTATIONS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Start Here</div>
+      <h2>Not Sure Where <em>to Begin?</em></h2>
+      <p class="intro">Start with a conversation with one of our relocation experts — no obligation, no pressure. Your consultation fee is credited toward any package you purchase.</p>
+    </div>
+    <div class="consult-grid-3 fade-in">
+
+      <div class="consult-card-v2">
+        <h3>Free Intro Call</h3>
+        <div class="price">$0</div>
+        <p>A 15-minute call to discuss your situation and explain how we can help. No obligation — really.</p>
+        <a href="contact.html" class="btn btn-outline">Book Now →</a>
+      </div>
+
+      <div class="consult-card-v2 featured">
+        <h3>Discovery Session</h3>
+        <div class="price">$65 <small>USD</small></div>
+        <p>A 30-minute in-depth session covering your move, timeline, immigration situation, and which services fit your needs best. Your $65 is credited toward any package you purchase.</p>
+        <a href="contact.html" class="btn btn-primary">Book Now →</a>
+      </div>
+
+      <div class="consult-card-v2">
+        <h3>Strategy Session</h3>
+        <div class="price">$195 <small>USD</small></div>
+        <p>A 60-minute deep-dive covering your full immigration picture, relocation timeline, and priorities — with a written summary of recommendations for your complete relocation plan delivered after the call.</p>
+        <a href="contact.html" class="btn btn-outline">Book Now →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: FLAT-FEE PACKAGES -->
+<section class="section alt-bg" id="packages">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Ready to Move</div>
+      <h2>Everything You Need to<br><em>Land Well and Settle In</em></h2>
+      <p class="intro" style="color:rgba(255,255,255,0.75);">One flat fee. One dedicated advisor. No hidden costs, no surprises.</p>
+    </div>
+
+    <div class="pkg-includes-v2 fade-in">
+      <h4>Every Package Includes</h4>
+      <div class="pkg-includes-cards">
+        <div class="pkg-inc-card">
+          <span class="inc-icon">🗺️</span>
+          <h5>Full Immigration Assessment</h5>
+          <p>Your advisor walks you through every pathway that applies to your situation — in plain language, no jargon. You'll know exactly where you stand.</p>
+        </div>
+        <div class="pkg-inc-card">
+          <span class="inc-icon">🤝</span>
+          <h5>RCIC &amp; Lawyer Introduction — Free</h5>
+          <p>When you're ready to apply, we introduce you to the right licensed professional from our trusted partner network. The referral is always free.</p>
+        </div>
+        <div class="pkg-inc-card">
+          <span class="inc-icon">📋</span>
+          <h5>Complete Services Menu</h5>
+          <p>Housing · Government Registration · Family &amp; Education · Healthcare · Pets · Vehicles · LGBTQ+ Support · Cultural Connection · Lifestyle Matching · Family Sponsorship</p>
+        </div>
+        <div class="pkg-inc-card">
+          <span class="inc-icon">🔗</span>
+          <h5>All Referrals — Always Free</h5>
+          <p>Legal, tax, real estate, cross-border finance — we coordinate every expert you need. You never have to figure out who to call.</p>
+        </div>
+      </div>
+      <div class="pkg-includes-footer">
+        <p class="inc-note">À la carte services can be added to any package at any time — <a href="#alacarte">see options ↓</a></p>
+        <a href="services.html" class="btn-white-outline">See everything we cover in detail →</a>
+      </div>
+    </div>
+
+    <div class="packages-grid fade-in-group">
+
+      <div class="package-card">
+        <h3>Soft Landing</h3>
+        <div class="price">$1,499 <small>USD flat fee</small></div>
+        <p class="tagline">Singles &amp; couples getting settled fast</p>
+        <p style="font-size:14px;color:#555;line-height:1.7;margin-bottom:1rem;">Your dedicated advisor begins by assessing your immigration situation and connecting you with the right licensed professionals. From there, we focus on getting you settled quickly and confidently.</p>
+        <ul>
+          <li>Immigration situation assessment &amp; pathway overview</li>
+          <li>RCIC or immigration lawyer introduction — free referral</li>
+          <li>Temporary housing search &amp; coordination</li>
+          <li>SIN registration guidance</li>
+          <li>Provincial health card registration</li>
+          <li>Banking setup guidance</li>
+          <li>Driver's licence exchange guidance</li>
+          <li>Cell phone &amp; internet setup</li>
+          <li>Border crossing guidance — what to declare on landing day</li>
+          <li>30 days dedicated advisor support by WhatsApp &amp; email, responses within 24 hours — video or phone calls scheduled as needed</li>
+        </ul>
+        <p class="pkg-card-note">À la carte services can be added at any time. Building out your move step by step? Start here and add what you need as you go. <a href="#alacarte" style="color:#888;">See à la carte options ↓</a></p>
+        <a href="contact.html" class="btn btn-outline">Buy Now →</a>
+      </div>
+
+      <div class="package-card featured">
+        <div class="badge">Most Popular</div>
+        <h3>Family Settlement</h3>
+        <div class="price">$2,499 <small>USD flat fee</small></div>
+        <p class="tagline">Everything families need to land well</p>
+        <p style="font-size:14px;color:#555;line-height:1.7;margin-bottom:1rem;">Everything in Soft Landing — plus dedicated support for every member of your family. Your advisor coordinates every detail so your whole family lands confidently and settles in quickly.</p>
+        <ul>
+          <li>Everything in Soft Landing, plus:</li>
+          <li>School search &amp; registration for up to 2 children</li>
+          <li>Catchment zones, waitlists &amp; assessment centre navigation</li>
+          <li>Daycare &amp; early childhood guidance</li>
+          <li>Pediatric care &amp; children's specialist navigation</li>
+          <li>Children's activities, sports &amp; enrichment programs</li>
+          <li>Family doctor search assistance</li>
+          <li>Neighbourhood matching by school district, lifestyle &amp; budget</li>
+          <li>Spousal &amp; partner support — job search resources &amp; community connections</li>
+          <li>60 days dedicated advisor support by WhatsApp &amp; email, responses within 24 hours — video or phone calls scheduled as needed</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Buy Now →</a>
+      </div>
+
+      <div class="package-card">
+        <h3>Premium Concierge</h3>
+        <div class="price">$3,999 <small>USD flat fee</small></div>
+        <p class="tagline">Full white-glove, every category covered</p>
+        <p style="font-size:14px;color:#555;line-height:1.7;margin-bottom:1rem;">Everything in Family Settlement — plus the full depth of everything we offer. Pets, vehicles, cultural connection, lifestyle matching, LGBTQ+ support, family sponsorship guidance — your advisor covers every category and coordinates every expert.</p>
+        <ul>
+          <li>Everything in Family Settlement, plus:</li>
+          <li>Pet import guidance, CFIA documentation &amp; vet search</li>
+          <li>Vehicle import coordination — RIV process &amp; border paperwork</li>
+          <li>Cultural &amp; community connection — finding your people in your new city</li>
+          <li>Lifestyle &amp; regional matching — activities, outdoors, social communities</li>
+          <li>LGBTQ+ relocation support — communities, healthcare, inclusive neighbourhoods</li>
+          <li>Family sponsorship overview — parents, grandparents, Super Visa guidance</li>
+          <li>Cross-border tax advisor introduction</li>
+          <li>Airport arrival transfer coordination — private car service to your accommodation</li>
+          <li>Virtual Landing Day Support — your advisor on WhatsApp from the moment you land</li>
+          <li>First-week arrival support — a friendly WhatsApp check-in every morning for your first 7 days, plus priority same-day response anytime you reach out</li>
+          <li>90 days dedicated advisor support by WhatsApp, email &amp; video — responses within 24 hours, priority same-day response</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline">Buy Now →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: À LA CARTE -->
+<section class="section" id="alacarte">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Need Just One Thing?</div>
+      <h2>À La Carte <em>Services</em></h2>
+      <p class="intro">Pick exactly what you need — no package required. Ideal for people who just need help with a specific step. All prices in USD.</p>
+    </div>
+    <div class="alacarte-list fade-in">
+      <div class="alacarte-row">
+        <span class="name">Temporary Housing Search &amp; Coordination</span>
+        <span class="price">$349–$549</span>
+      </div>
+      <div class="alacarte-row">
+        <span class="name">SIN Registration Guidance</span>
+        <span class="price">$89–$149</span>
+      </div>
+      <div class="alacarte-row">
+        <span class="name">Health Card Registration Guidance</span>
+        <span class="price">$89–$149</span>
+      </div>
+      <div class="alacarte-row">
+        <span class="name">Banking Setup Guidance</span>
+        <span class="price">$89–$149</span>
+      </div>
+      <div class="alacarte-row">
+        <span class="name">Driver's Licence Exchange Guidance</span>
+        <span class="price">$119–$179</span>
+      </div>
+      <div class="alacarte-row">
+        <span class="name">School Search &amp; Registration (per child)</span>
+        <span class="price">$249–$349</span>
+      </div>
+      <div class="alacarte-row">
+        <span class="name">Pet Import Guidance</span>
+        <span class="price">$179–$299</span>
+      </div>
+      <div class="alacarte-row">
+        <span class="name">Vehicle Import Guidance</span>
+        <span class="price">$279–$429</span>
+      </div>
+      <div class="alacarte-row">
+        <span class="name">Cultural &amp; Community Connection</span>
+        <span class="price">$179–$299</span>
+      </div>
+      <div class="alacarte-row">
+        <span class="name">Regional Lifestyle Matching</span>
+        <span class="price">$179–$299</span>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:1rem;font-size:13px;color:#888;font-style:italic;">Shipping &amp; vehicle importation coordination quoted case-by-case. All prices in USD.</p>
+    <p style="text-align:center;margin-top:0.5rem;font-size:13px;color:#888;">Any à la carte service can be added to an existing package at any time.</p>
+  </div>
+</section>
+
+<!-- SECTION 4: MONTHLY PLANS -->
+<section class="section alt-bg">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Already in Canada?</div>
+      <h2>Ongoing <em>Support Plans</em></h2>
+      <p class="intro" style="color:rgba(255,255,255,0.75);">Settled in but still navigating? Our monthly plans keep your dedicated advisor in your corner for as long as you need — no fixed end date, cancel any time.</p>
+    </div>
+    <div class="packages-grid fade-in-group">
+
+      <div class="package-card">
+        <h3>Essential</h3>
+        <div class="price">$399 <small>/month USD</small></div>
+        <p class="tagline">Core guidance &amp; resource access</p>
+        <ul>
+          <li>Immigration situation check-in &amp; pathway updates</li>
+          <li>Dedicated advisor support by email — responses within 24 hours</li>
+          <li>Video or phone calls scheduled as needed</li>
+          <li>Core guidance across all service categories</li>
+          <li>Resource library access</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline">Get Started →</a>
+      </div>
+
+      <div class="package-card featured">
+        <div class="badge">Best Value</div>
+        <h3>Signature</h3>
+        <div class="price">$799 <small>/month USD</small></div>
+        <p class="tagline">Full support across every category</p>
+        <ul>
+          <li>Immigration updates &amp; RCIC coordination as needed</li>
+          <li>Dedicated advisor support by WhatsApp &amp; email — responses within 24 hours</li>
+          <li>Regular check-in calls scheduled as needed</li>
+          <li>Personalized relocation planning</li>
+          <li>All service categories covered</li>
+          <li>Partner referrals — legal, tax, real estate, as needed</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Get Started →</a>
+      </div>
+
+      <div class="package-card">
+        <h3>Concierge</h3>
+        <div class="price">$1,499 <small>/month USD</small></div>
+        <p class="tagline">Dedicated advisor, priority everything</p>
+        <ul>
+          <li>Full immigration monitoring &amp; partner coordination</li>
+          <li>Dedicated personal advisor</li>
+          <li>Priority response — same business day</li>
+          <li>WhatsApp, email &amp; video access</li>
+          <li>Real-time decision support</li>
+          <li>Full coordination across all services and partners</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline">Get Started →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: ANCESTRY CALLOUT -->
+<section class="section">
+  <div class="container">
+    <div class="ancestry-callout fade-in">
+      <div class="badge-label">🍁 Also Offering — Canadian Citizenship by Descent Research</div>
+      <h3>Do You Have Canadian Ancestry?</h3>
+      <p>You may already be a dual citizen under the law — without ever having applied. Canada's Bill C-3 removed the generational limit on citizenship by descent in December 2025. If even one ancestor in your family tree was born or naturalized in Canada — no matter how many generations back — you may qualify right now. Our ancestry research service helps Americans find the records, build the family tree, and get their citizenship application ready. This is a completely separate service from our relocation packages — available whether or not you're planning to move.</p>
+      <a href="citizenship-by-descent.html" class="btn btn-primary">Learn More &amp; See Pricing →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE FOOTER NOTE -->
+<div class="pkg-footer-note">
+  All packages are non-legal services. Immigration guidance is informational only. Immigration applications are coordinated through our licensed RCIC and immigration lawyer partner network — referrals are always free. All prices in USD. No hidden fees. No surprises.
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap"><img src="images/logo.png" alt="Canada Immigration Concierge" class="footer-logo"></div>
+        <p>Your life in Canada — fully supported.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="immigration.html">Immigration Applications</a>
+        <a href="citizenship-by-descent.html">Canadian Citizenship</a>
+        <a href="packages.html">Packages &amp; Pricing</a>
+        <a href="moving-to-canada.html">Moving to Canada</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Canadian Immigration Concierge · <a href="mailto:hello@canadianimmigrationconcierge.ca">hello@canadianimmigrationconcierge.ca</a></p>
+      <p class="footer-legal">Non-legal services only. Not a law firm or immigration consultancy. Licensed immigration services provided by independent RCIC and lawyer partners. All prices in USD.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

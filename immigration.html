@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Immigration Applications — Canadian Immigration Concierge</title>
+  <meta name="description" content="Every Canadian immigration pathway explained. Express Entry, PNPs, family sponsorship, H-1B accelerated PR, and more. Your dedicated advisor walks you through all of it.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ---- PAGE-SPECIFIC STYLES ---- */
+
+    /* Stat cards 2x2 */
+    .why-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .why-stat-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+    }
+    .why-stat-card .lbl {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--light);
+      margin-bottom: 0.35rem;
+    }
+    .why-stat-card .val {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    /* Steps */
+    .steps-list { display: flex; flex-direction: column; gap: 3rem; margin-top: 2.5rem; }
+    .step { display: grid; grid-template-columns: 56px 1fr; gap: 1.5rem; align-items: start; }
+    .step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--red); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .step-body h3 { font-size: clamp(1.2rem,2vw,1.5rem); margin-bottom: 0.75rem; }
+    .step-body p { color: var(--mid); line-height: 1.7; margin-bottom: 1rem; }
+    .step-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .step-tag {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 0.3rem 0.85rem;
+      font-size: 0.78rem;
+      color: var(--mid);
+      font-weight: 500;
+    }
+
+    /* Testimonial section */
+    .testimonial-section {
+      background: var(--red);
+      padding: clamp(3rem,6vw,6rem) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonial-section::before {
+      content: '\201C';
+      position: absolute;
+      top: -0.2em;
+      left: 0.1em;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(12rem, 20vw, 22rem);
+      color: rgba(255,255,255,0.08);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .testimonial-inner { max-width: 820px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+    .testimonial-eyebrow {
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.6); margin-bottom: 1.5rem;
+    }
+    .testimonial-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.25rem,2.5vw,1.9rem);
+      font-style: italic;
+      color: #fff;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+    .testimonial-client { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; }
+    .testimonial-avatar {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 700; color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      flex-shrink: 0;
+    }
+    .testimonial-name { color: #fff; font-weight: 600; font-size: 0.95rem; }
+    .testimonial-loc { color: rgba(255,255,255,0.65); font-size: 0.82rem; margin-top: 0.1rem; }
+    .testimonial-stars { color: #FFD700; font-size: 1rem; margin-top: 0.2rem; }
+    .testimonial-stats {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem;
+    }
+    .testimonial-stat {
+      background: rgba(250,247,242,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      text-align: center;
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    /* CBD callout banner */
+    .cbd-callout {
+      background: #1C3557 !important;
+      border-left: 4px solid #C41230 !important;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .cbd-callout-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .cbd-callout p,
+    .cbd-callout-heading,
+    .cbd-callout-body { color: inherit; }
+    .cbd-callout .cbd-callout-heading {
+      font-size: 20px !important;
+      font-weight: 800 !important;
+      color: #ffffff !important;
+      margin-bottom: 0.75rem !important;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.3;
+    }
+    .cbd-callout .cbd-callout-body {
+      font-size: 15px !important;
+      color: rgba(255,255,255,0.80) !important;
+      line-height: 1.75 !important;
+      margin: 0 0 0 0 !important;
+    }
+    .cbd-callout-action { flex-shrink: 0; }
+    .cbd-callout-btn {
+      display: inline-block !important;
+      background: #C41230 !important;
+      color: #ffffff !important;
+      font-size: 14px !important;
+      font-weight: 700 !important;
+      padding: 11px 24px !important;
+      border-radius: 6px !important;
+      text-decoration: none !important;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .cbd-callout-btn:hover { background: #8B1A11 !important; }
+    @media (max-width: 640px) {
+      .cbd-callout-inner { flex-direction: column; text-align: center; }
+      .cbd-callout-action { width: 100%; text-align: center; }
+    }
+
+    /* Pathway cards */
+    .pathways-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 900px) { .pathways-grid { grid-template-columns: repeat(2, 1fr); } }
+    .pathway-card {
+      background: #ffffff;
+      border: 1.5px solid #dde4ef;
+      border-left: 4px solid #C41230;
+      border-radius: 12px;
+      padding: 1.75rem;
+      box-shadow: 0 2px 12px rgba(28,53,87,0.08);
+    }
+    .pathway-icon {
+      font-size: 28px;
+      margin-bottom: 0.75rem;
+      line-height: 1;
+      display: block;
+    }
+    .pathway-card h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #1C3557;
+      margin-bottom: 0.5rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .pathway-card p {
+      font-size: 14px;
+      color: #444444;
+      line-height: 1.75;
+      margin: 0;
+    }
+    .pathway-badge {
+      display: inline-block;
+      background: #C41230;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 0.5rem;
+    }
+
+    .imm-hero { background-image: none !important; }
+    .imm-hero::before { background: rgba(0,0,0,0.35) !important; }
+    .imm-hero-img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center center;
+      z-index: 0;
+    }
+
+    @media (max-width: 768px) {
+      .why-stats { grid-template-columns: 1fr; }
+      .step { grid-template-columns: 44px 1fr; gap: 1rem; }
+      .step-num { width: 44px; height: 44px; font-size: 1.2rem; }
+      .testimonial-stats { grid-template-columns: 1fr; }
+      .pathways-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCE BAR -->
+<div class="announce-bar">Talk to a Canadian relocation advisor today &mdash; <a href="tel:18887940705" style="color:#fff;text-decoration:none;">1-888-794-0705</a></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Canada Immigration Concierge"></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <div class="nav-menu" id="navMenu">
+      <a href="index.html" class="nav-link">Home</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dropdown-toggle" aria-expanded="false">Canadian Citizenship <span class="nav-chevron">&#9660;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="citizenship-by-descent.html" class="nav-dropdown-item">Canadian Citizenship</a>
+          <a href="immigration.html" class="nav-dropdown-item">Immigration Pathways</a>
+        </div>
+      </div>
+      <a href="packages.html" class="nav-link">Packages &amp; Pricing</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="corporate.html" class="nav-link">Corporate</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dropdown-toggle" aria-expanded="false">About <span class="nav-chevron">&#9660;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="about.html" class="nav-dropdown-item">About</a>
+          <a href="moving-to-canada.html" class="nav-dropdown-item">Moving to Canada</a>
+          <a href="faq.html" class="nav-dropdown-item">FAQ</a>
+        </div>
+      </div>
+      <a href="contact.html" class="btn btn-red">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero imm-hero" style="position:relative;">
+  <img src="images/immigration-hero.jpg" class="imm-hero-img" alt="">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Immigration Applications</div>
+    <h1>Your path to Canada <em>starts here.</em></h1>
+    <p>Canada's immigration system changes constantly. New pathways open, caps fill within hours, and the right move today may not be the right move in six months. Our team stays current so you don't have to — and when it's time to act, we're ready to move with you.</p>
+    <div class="btn-group" style="margin-top:1.5rem">
+      <a href="contact.html" class="btn btn-primary">Talk to an advisor</a>
+      <a href="#pathways" class="btn btn-ghost">See all pathways →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CBD CALLOUT -->
+<section class="section" style="padding-bottom:0;">
+  <div class="container">
+    <div class="cbd-callout">
+      <div class="cbd-callout-inner">
+        <div class="cbd-callout-text">
+          <p class="cbd-callout-heading">🍁 Already a Canadian Citizen and Don't Know It?</p>
+          <p class="cbd-callout-body">Canada's Bill C-3 removed the generational limit on citizenship by descent. If you have a Canadian ancestor — no matter how many generations back — you may already qualify for dual citizenship without immigrating at all. No residency. No language test. No exam.</p>
+        </div>
+        <div class="cbd-callout-action">
+          <a href="citizenship-by-descent.html" class="cbd-callout-btn">Find Out If You Qualify →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 — WHY CHOOSE US -->
+<section class="section">
+  <div class="container">
+    <div class="two-col">
+
+      <div class="col-left fade-in">
+        <div class="eyebrow">Why Choose Us</div>
+        <h2>We're not just a service.<br><em>We're your team.</em></h2>
+        <p>Moving to Canada starts long before you pack a box. It starts with understanding your options. Our team has deep knowledge of every Canadian immigration pathway — and we stay on top of every policy change, new program, and deadline that could affect your journey.</p>
+        <p>We walk you through all of it in plain language, help you understand exactly where you stand, and then guide you every step of the way from first question to front door.</p>
+      </div>
+
+      <div class="col-right fade-in">
+        <div class="why-stats">
+          <div class="why-stat-card">
+            <span class="lbl">Languages</span>
+            <span class="val">English · French · Spanish</span>
+          </div>
+          <div class="why-stat-card">
+            <span class="lbl">Availability</span>
+            <span class="val">Response within 24 hours</span>
+          </div>
+          <div class="why-stat-card">
+            <span class="lbl">Format</span>
+            <span class="val">100% remote, anywhere in Canada</span>
+          </div>
+          <div class="why-stat-card">
+            <span class="lbl">Support</span>
+            <span class="val">Dedicated advisor, months of guidance</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 — HOW IT WORKS -->
+<section class="section alt-bg">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">How It Works</div>
+      <h2>From first question <em>to front door.</em></h2>
+    </div>
+
+    <div class="steps-list">
+
+      <div class="step fade-in">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>We get to know you</h3>
+          <p>Before anything else, we sit down with you — by phone, video, or WhatsApp — and listen. Where are you coming from? What's your work history, your family situation, your timeline? Do you have kids, pets, a car you want to bring? A same-sex partner? Parents you'd like to eventually sponsor? We want the full picture. Then we walk you through every immigration pathway that could work for your situation — Express Entry, Provincial Nominee Programs, family sponsorship, the new H-1B accelerated pathway if you're American — in plain language, no jargon. You leave that first conversation knowing exactly where you stand and what your options are.</p>
+          <div class="step-tags">
+            <span class="step-tag">Immigration pathways</span>
+            <span class="step-tag">Express Entry</span>
+            <span class="step-tag">PNP</span>
+            <span class="step-tag">Family sponsorship</span>
+            <span class="step-tag">H-1B pathway</span>
+            <span class="step-tag">Your situation assessed</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step fade-in">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>We build your plan</h3>
+          <p>Once we understand your situation, we put together a complete roadmap — not just for your immigration application, but for your entire move. Housing, schools, healthcare, banking, your driver's licence, your pets, your vehicle, your community. We coordinate your introduction to the right licensed RCIC or immigration lawyer from our partner network for your application, brief them on your full situation, and stay in the loop throughout. At the same time we're already working on the settlement side — finding your neighborhood, researching schools for your kids, identifying the right communities for your family. Everything moves together, not in silos.</p>
+          <div class="step-tags">
+            <span class="step-tag">RCIC partner matched</span>
+            <span class="step-tag">Application coordinated</span>
+            <span class="step-tag">Housing search</span>
+            <span class="step-tag">School research</span>
+            <span class="step-tag">Neighborhood matching</span>
+            <span class="step-tag">Pets &amp; vehicles</span>
+            <span class="step-tag">Settlement roadmap</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step fade-in">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>We're with you every step</h3>
+          <p>From the day you sign on with us to the day you're settled in your new Canadian life, we're your team. We check in on your application status, keep you updated on policy changes that could affect your timeline, help you navigate the health card and SIN process when you land, find you a family doctor, connect you with your cultural community, help your teenager find a part-time job, and answer every question that comes up along the way — big or small. Most of our clients stay with us for months. Some for over a year. That's exactly how we like it.</p>
+          <div class="step-tags">
+            <span class="step-tag">Application updates</span>
+            <span class="step-tag">Landing day support</span>
+            <span class="step-tag">SIN &amp; health card</span>
+            <span class="step-tag">Family doctor</span>
+            <span class="step-tag">Banking setup</span>
+            <span class="step-tag">Community connection</span>
+            <span class="step-tag">Cultural integration</span>
+            <span class="step-tag">Ongoing check-ins</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 — TESTIMONIAL -->
+<div class="testimonial-section">
+  <div class="testimonial-inner">
+    <div class="testimonial-eyebrow">Client Story</div>
+    <p class="testimonial-quote">"I didn't know where to start. I had a job offer in Vancouver, a dog, a car, and two kids in middle school. My advisor at Canadian Immigration Concierge walked me through every option for my visa, found us a neighborhood near a great school, helped me figure out how to get my dog across the border, and was still answering my questions three months after we landed. I genuinely don't know how we would have done this without them."</p>
+    <div class="testimonial-client">
+      <div class="testimonial-avatar">JM</div>
+      <div>
+        <div class="testimonial-name">🇺🇸 Jennifer M.</div>
+        <div class="testimonial-loc">Seattle, WA → Vancouver, BC · Premium Concierge client</div>
+        <div class="testimonial-stars">★★★★★</div>
+      </div>
+    </div>
+    <div class="testimonial-stats">
+      <div class="testimonial-stat">3 months of ongoing support</div>
+      <div class="testimonial-stat">1 team — immigration + settlement</div>
+      <div class="testimonial-stat">★ 5.0 client satisfaction</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5 — PATHWAYS -->
+<section class="section" id="pathways">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Immigration Pathways</div>
+      <h2 style="font-size:32px;font-weight:800;color:#1C3557;">Every route in. We know them all.</h2>
+      <p class="intro" style="font-size:16px;color:#555555;line-height:1.8;max-width:680px;margin-left:auto;margin-right:auto;">Our team stays current on every active pathway, new program launch, and policy change. Here's what we can guide you through — and every one of these pathways can be discussed in depth with your advisor before you commit to anything.</p>
+    </div>
+
+    <div class="pathways-grid fade-in-group">
+
+      <div class="pathway-card" data-num="01">
+        <span class="pathway-icon">⚡</span>
+        <h3>Express Entry</h3>
+        <p>The fastest route to permanent residency for skilled workers. Operates through three streams — Federal Skilled Worker, Canadian Experience Class, and Federal Skilled Trades. Applicants are ranked and the highest-scoring receive an Invitation to Apply. In 2026 Canada introduced five new categories including medical doctors, researchers, senior managers, transport occupations, and skilled military recruits.</p>
+      </div>
+
+      <div class="pathway-card" data-num="02">
+        <div class="pathway-icon">🏛️</div>
+        <h3>Provincial Nominee Programs (PNP)</h3>
+        <p>Every province has its own immigration streams matched to local workforce needs — Ontario, BC, Alberta, Saskatchewan, Manitoba, Nova Scotia, New Brunswick, PEI, Newfoundland, and the territories all operate their own programs. We help identify the right province and stream for your profile and goals.</p>
+      </div>
+
+      <div class="pathway-card" data-num="03">
+        <div class="pathway-icon">⚓</div>
+        <h3>Atlantic Immigration Program</h3>
+        <p>Designed for skilled workers and international graduates willing to settle in Nova Scotia, New Brunswick, PEI, or Newfoundland &amp; Labrador. Strong approval rates and a welcoming community focus — an excellent option for those open to smaller-city Canadian life.</p>
+      </div>
+
+      <div class="pathway-card" data-num="04">
+        <div class="pathway-icon">👨‍👩‍👧</div>
+        <h3>Family Sponsorship</h3>
+        <p>Canadian citizens and permanent residents can sponsor spouses, partners, dependent children, and in some cases parents and grandparents. Contributing 70,000 new permanent residents annually. We guide you through the process and connect you with our licensed partners for the application.</p>
+      </div>
+
+      <div class="pathway-card" data-num="05">
+        <div class="pathway-icon">💼</div>
+        <h3>Work Permits</h3>
+        <p>Employer-specific and open work permits — often the first step on the path to permanent residency. We help you understand your options, what your employer needs to do, and how a work permit fits into your longer-term immigration plan.</p>
+      </div>
+
+      <div class="pathway-card" data-num="06">
+        <div class="pathway-icon">🎓</div>
+        <h3>Study Permits</h3>
+        <p>Canada targets over 300,000 new international students annually. Study permits frequently lead to permanent residency through the Post-Graduation Work Permit and then the Canadian Experience Class. A well-planned student pathway can be one of the most reliable routes to Canadian PR.</p>
+      </div>
+
+      <div class="pathway-card" data-num="07">
+        <span class="pathway-badge">New 2026</span>
+        <div class="pathway-icon">🚀</div>
+        <h3>H-1B Holders — Accelerated PR</h3>
+        <p>A brand new accelerated permanent residency pathway specifically for American H-1B visa holders, formally announced in the 2025 federal budget. When Canada tested a similar program in 2023, 10,000 spots filled within hours. If you hold an H-1B visa, this may be your fastest route to Canada.</p>
+      </div>
+
+      <div class="pathway-card" data-num="08">
+        <span class="pathway-badge">2026 Initiative</span>
+        <div class="pathway-icon">🔑</div>
+        <h3>Temporary Resident to PR</h3>
+        <p>Canada is accelerating the transition of up to 33,000 temporary work permit holders to permanent residency across 2026 and 2027, targeting workers who have already established strong roots in Canadian communities. If you're already in Canada on a work permit, this could be your path.</p>
+      </div>
+
+      <div class="pathway-card" data-num="09">
+        <div class="pathway-icon">🌿</div>
+        <h3>Rural &amp; Community Programs</h3>
+        <p>The Rural Community Immigration Pilot (RCIP) and Francophone Community Immigration Pilot (FCIP) support smaller communities across Canada with high success rates for committed applicants. A great option for those drawn to small-town Canadian life outside the major cities.</p>
+      </div>
+
+      <div class="pathway-card" data-num="10">
+        <div class="pathway-icon">💡</div>
+        <h3>Start-Up Visa</h3>
+        <p>For entrepreneurs with an innovative business idea and backing from a designated Canadian investor organization or accelerator. Canada actively seeks entrepreneurs who can create jobs and build companies. If you're starting something new, this pathway was built for you.</p>
+      </div>
+
+      <div class="pathway-card" data-num="11">
+        <div class="pathway-icon">❤️</div>
+        <h3>Caregiver Programs</h3>
+        <p>The Home Care Worker Immigration pilots offer direct permanent residency status upon arrival for eligible caregivers in child care and home support roles. In-demand, fast-moving, and a meaningful pathway for those in the care sector.</p>
+      </div>
+
+      <div class="pathway-card" data-num="12">
+        <div class="pathway-icon">🤝</div>
+        <h3>Refugee &amp; Humanitarian Pathways</h3>
+        <p>Canada maintains strong commitments to refugee protection and humanitarian immigration. The Economic Mobility Pathways Program (EMPP) is transitioning from a pilot to a permanent program, helping skilled refugees and displaced individuals find a path through employment-based immigration.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="cta-section dark">
+  <h2>Ready to find <em>your path?</em></h2>
+  <p>Book a free 15-minute call and we'll tell you exactly where you stand and what your options look like right now. No commitment, no pressure — just clarity.</p>
+  <div class="btn-group" style="justify-content:center">
+    <a href="contact.html" class="btn btn-primary">Book a free call</a>
+    <a href="packages.html" class="btn btn-ghost-white">Browse packages →</a>
+  </div>
+  <p class="footnote" style="margin-top:2rem;max-width:680px;margin-left:auto;margin-right:auto">Legal referrals: Where legal representation is required, clients are referred to licensed immigration lawyers or regulated consultants. There is no charge for referrals. Legal fees are paid directly to the licensed professional.</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap"><img src="images/logo.png" alt="Canada Immigration Concierge" class="footer-logo"></div>
+        <p>Your life in Canada — fully supported.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="immigration.html">Immigration Applications</a>
+        <a href="citizenship-by-descent.html">Canadian Citizenship</a>
+        <a href="packages.html">Packages &amp; Pricing</a>
+        <a href="moving-to-canada.html">Moving to Canada</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Canadian Immigration Concierge · <a href="mailto:hello@canadianimmigrationconcierge.ca">hello@canadianimmigrationconcierge.ca</a></p>
+      <p class="footer-legal">Non-legal services only. Not a law firm or immigration consultancy. Licensed immigration services provided by independent RCIC and lawyer partners. All prices in USD.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

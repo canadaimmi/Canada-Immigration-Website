@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Canadian Immigration Concierge</title>
+  <meta name="description" content="We built Canadian Immigration Concierge because relocating to a new country deserves more than a checklist. Learn about our team, values, and approach.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .about-hero { background-image: none !important; min-height: 700px !important; }
+    .about-hero::before { background: rgba(0,0,0,0.35) !important; }
+    .about-hero-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center center; filter:brightness(1.05) saturate(1.1); z-index:0; }
+    .about-hero .page-hero-inner { position:relative; z-index:2; }
+
+    .team-float {
+      float: right;
+      width: 235px;
+      border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+      margin: 0 0 1.25rem 1.75rem;
+      display: block;
+    }
+    @media (max-width: 640px) {
+      .team-float {
+        float: none;
+        width: 100%;
+        margin: 0 0 1.25rem 0;
+      }
+    }
+    .values-grid-12 { grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 900px) { .values-grid-12 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .values-grid-12 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCE BAR -->
+<div class="announce-bar">Talk to a Canadian relocation advisor today &mdash; <a href="tel:18887940705" style="color:#fff;text-decoration:none;">1-888-794-0705</a></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Canada Immigration Concierge"></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <div class="nav-menu" id="navMenu">
+      <a href="index.html" class="nav-link">Home</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dropdown-toggle" aria-expanded="false">Canadian Citizenship <span class="nav-chevron">&#9660;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="citizenship-by-descent.html" class="nav-dropdown-item">Canadian Citizenship</a>
+          <a href="immigration.html" class="nav-dropdown-item">Immigration Pathways</a>
+        </div>
+      </div>
+      <a href="packages.html" class="nav-link">Packages &amp; Pricing</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="corporate.html" class="nav-link">Corporate</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dropdown-toggle" aria-expanded="false">About <span class="nav-chevron">&#9660;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="about.html" class="nav-dropdown-item">About</a>
+          <a href="moving-to-canada.html" class="nav-dropdown-item">Moving to Canada</a>
+          <a href="faq.html" class="nav-dropdown-item">FAQ</a>
+        </div>
+      </div>
+      <a href="contact.html" class="btn btn-red">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero about-hero">
+  <img class="about-hero-img" src="images/about-hero.jpg" alt="Happy family outdoors">
+  <div class="page-hero-inner">
+    <div class="eyebrow">About Us</div>
+    <h1>Real people.<br><em>Real support.</em></h1>
+    <p>We built Canadian Immigration Concierge because relocating to a new country deserves more than a checklist. It deserves a team.</p>
+  </div>
+</section>
+
+<!-- OUR STORY + TEAM -->
+<section class="section">
+  <div class="container">
+    <div class="two-col">
+
+      <div class="col-left fade-in">
+        <div class="eyebrow">Our Story</div>
+        <h2>More than logistics —<br><em>it's life.</em></h2>
+        <p>Relocating to a new country is one of life's biggest transitions. We created Canadian Immigration Concierge to make that transition simpler, more supported, and more human.</p>
+        <p>We've seen firsthand how stressful it can be to navigate a new country — the housing market, the healthcare system, the schools, the paperwork — without someone in your corner who knows the ropes. That's exactly what we provide.</p>
+        <p>Our team of multilingual advisors brings together expertise across housing, education, healthcare, community integration, and more. We operate entirely remotely, which means we can serve clients anywhere in the world, moving to anywhere in Canada.</p>
+      </div>
+
+      <div class="col-right fade-in">
+        <div class="eyebrow">Our Team</div>
+        <img src="images/team-photo.jpg" alt="The Canadian Immigration Concierge team" style="width:100%;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,0.13);display:block;">
+        <p class="team-footnote">Every client is assigned a dedicated advisor who stays with them throughout their relocation journey. Your advisor becomes your single point of contact — available by WhatsApp, email, or video call.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO COLLAGE STRIP -->
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;height:300px;overflow:hidden;gap:4px;">
+  <img src="images/family-hero.jpg" alt="Diverse family" style="width:100%;height:100%;object-fit:cover;">
+  <img src="images/asian-family.jpg" alt="Family outdoors" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+  <img src="images/couple-lake.jpg" alt="Canadian nature" style="width:100%;height:100%;object-fit:cover;">
+</div>
+
+<!-- VALUES -->
+<section class="section alt-bg">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">What We Stand For</div>
+      <h2>What we believe — and how we <em>show up for you.</em></h2>
+    </div>
+    <div class="values-grid values-grid-12 fade-in-group">
+      <div class="value-card">
+        <div class="icon">🍁</div>
+        <h4>You're Not Alone in This</h4>
+        <p>Moving countries is big. We're the warm, knowledgeable friend on the Canadian side who makes sure you never have to figure it out alone.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon">💻</div>
+        <h4>Remote-First</h4>
+        <p>We serve you wherever you are, moving to wherever you're going. No in-person requirement, ever.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon">🤝</div>
+        <h4>Human-Centered</h4>
+        <p>Real advisors, real conversations. Not chatbots, not generic guides — actual human support.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon">🌈</div>
+        <h4>Judgment-Free</h4>
+        <p>Every situation and every family is welcome here. We support all people, all backgrounds, all identities.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon">🧭</div>
+        <h4>One Advisor, Start to Finish</h4>
+        <p>No handoffs, no confusion. One dedicated person who knows your story and stays with you through every step.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon">🗓️</div>
+        <h4>Your Timeline, Not Ours</h4>
+        <p>Life doesn't move on a schedule. We work at your pace and meet you where you are.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon">🌎</div>
+        <h4>Fluently Multilingual</h4>
+        <p>We meet you in your language — English, French, or Spanish — so nothing gets lost in translation.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon">🔍</div>
+        <h4>Radical Transparency</h4>
+        <p>No hidden fees, no upselling, no surprises. You always know exactly what you're getting and what it costs.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon">📦</div>
+        <h4>We Handle the Details</h4>
+        <p>Banking, housing, schools, healthcare, taxes — we take the overwhelm off your plate so you can focus on the excitement of what's ahead.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon">🏡</div>
+        <h4>Settling In, Not Just Showing Up</h4>
+        <p>Moving is more than logistics. We stay with you until you feel truly at home.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon">📞</div>
+        <h4>Always Reachable</h4>
+        <p>By WhatsApp, email, or toll-free call. We're available when you need us — not just during business hours.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon">🌱</div>
+        <h4>Built for New Beginnings</h4>
+        <p>Everything we do is designed around one goal: helping you build a life you love in Canada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="stat fade-in"><span class="num">30+</span><span class="lbl">Countries Served</span></div>
+    <div class="stat fade-in"><span class="num">3</span><span class="lbl">Languages Spoken</span></div>
+    <div class="stat fade-in"><span class="num">10+</span><span class="lbl">Service Categories</span></div>
+    <div class="stat fade-in"><span class="num">100%</span><span class="lbl">Remote Service</span></div>
+    <div class="stat fade-in"><span class="num">$0</span><span class="lbl">For Legal Referrals</span></div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section dark">
+  <h2>Ready to meet your <em>advisor?</em></h2>
+  <p>Start with a free 15-minute call. We'll match you with the right advisor for your situation.</p>
+  <div class="btn-group" style="justify-content:center">
+    <a href="contact.html" class="btn btn-primary">Book a Free Call</a>
+    <a href="packages.html" class="btn btn-ghost-white">Browse Packages →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap"><img src="images/logo.png" alt="Canada Immigration Concierge" class="footer-logo"></div>
+        <p>Your life in Canada — fully supported.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="immigration.html">Immigration Applications</a>
+        <a href="citizenship-by-descent.html">Canadian Citizenship</a>
+        <a href="packages.html">Packages &amp; Pricing</a>
+        <a href="moving-to-canada.html">Moving to Canada</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Canadian Immigration Concierge · <a href="mailto:hello@canadianimmigrationconcierge.ca">hello@canadianimmigrationconcierge.ca</a></p>
+      <p class="footer-legal">Non-legal services only. Not a law firm or immigration consultancy. Licensed immigration services provided by independent RCIC and lawyer partners. All prices in USD.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

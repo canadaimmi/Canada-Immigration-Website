@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moving to Canada — Guides &amp; Resources</title>
+  <meta name="description" content="Practical, honest guides for Americans and newcomers thinking about moving to Canada. Healthcare, schools, pets, vehicles, LGBTQ+, finances, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .mtc-hero { background-image: none !important; min-height: 800px !important; }
+    .mtc-hero::before { background: rgba(0,0,0,0.30) !important; }
+    .mtc-hero-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center center; filter:brightness(1.1) saturate(1.15); z-index:0; }
+    .mtc-hero .page-hero-inner { position:relative; z-index:2; }
+
+    .articles-intro {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--mid);
+      margin-bottom: 2rem;
+    }
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .article-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+      transition: transform 0.35s cubic-bezier(.65,0,.35,1), box-shadow 0.35s cubic-bezier(.65,0,.35,1);
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+    }
+    .article-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.12);
+    }
+    .article-thumb {
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.75rem;
+      flex-shrink: 0;
+    }
+    .article-body {
+      padding: 1rem 1.1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 0.5rem;
+    }
+    .article-category {
+      font-size: 0.67rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--red);
+      font-weight: 700;
+    }
+    .article-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.45;
+      flex: 1;
+    }
+    .article-link {
+      font-size: 0.78rem;
+      color: var(--red);
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      margin-top: 0.25rem;
+    }
+    .article-link:hover { text-decoration: underline; }
+    @media (max-width: 1024px) { .articles-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 700px)  { .articles-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .articles-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCE BAR -->
+<div class="announce-bar">Talk to a Canadian relocation advisor today &mdash; <a href="tel:18887940705" style="color:#fff;text-decoration:none;">1-888-794-0705</a></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Canada Immigration Concierge"></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <div class="nav-menu" id="navMenu">
+      <a href="index.html" class="nav-link">Home</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dropdown-toggle" aria-expanded="false">Canadian Citizenship <span class="nav-chevron">&#9660;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="citizenship-by-descent.html" class="nav-dropdown-item">Canadian Citizenship</a>
+          <a href="immigration.html" class="nav-dropdown-item">Immigration Pathways</a>
+        </div>
+      </div>
+      <a href="packages.html" class="nav-link">Packages &amp; Pricing</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="corporate.html" class="nav-link">Corporate</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dropdown-toggle" aria-expanded="false">About <span class="nav-chevron">&#9660;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="about.html" class="nav-dropdown-item">About</a>
+          <a href="moving-to-canada.html" class="nav-dropdown-item">Moving to Canada</a>
+          <a href="faq.html" class="nav-dropdown-item">FAQ</a>
+        </div>
+      </div>
+      <a href="contact.html" class="btn btn-red">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero mtc-hero">
+  <img class="mtc-hero-img" src="images/moving-hero.jpg" alt="Moving to Canada">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Moving to Canada</div>
+    <h1>Everything you need to know — <em>and someone to help you every step of the way.</em></h1>
+  </div>
+</section>
+
+<!-- ARTICLES GRID -->
+<section class="section" style="background:var(--cream);padding-top:3rem;padding-bottom:2.5rem;">
+  <div class="container">
+    <p class="articles-intro">Discover why thousands of Americans are choosing Canada — read on.</p>
+    <div class="articles-grid fade-in-group">
+
+      <div class="article-card">
+        <div class="article-thumb" style="background:linear-gradient(135deg,#2d5a27,#4a8c42);">🏔️</div>
+        <div class="article-body">
+          <span class="article-category">Nature &amp; Towns</span>
+          <p class="article-title">8 Canadian towns with stunning nature where you can actually afford to live</p>
+          <a href="https://www.msn.com/en-ca/travel/tripideas/8-canadian-towns-with-stunning-nature-where-you-can-actually-afford-to-live/ss-AA1PJ6C6" class="article-link" target="_blank" rel="noopener">Read Article →</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-thumb" style="background:linear-gradient(135deg,#1a3a5c,#2a5f8f);">🏙️</div>
+        <div class="article-body">
+          <span class="article-category">Where to Live</span>
+          <p class="article-title">15 Canadian cities Americans wish they could call home</p>
+          <a href="https://www.msn.com/en-ca/travel/tripideas/15-canadian-cities-americans-wish-they-could-call-home/ss-AA1IJbic" class="article-link" target="_blank" rel="noopener">Read Article →</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-thumb" style="background:linear-gradient(135deg,#7a3b1e,#b5601a);">🌅</div>
+        <div class="article-body">
+          <span class="article-category">Retirement</span>
+          <p class="article-title">22 affordable towns in Canada where you can retire in comfort</p>
+          <a href="https://www.msn.com/en-ca/travel/tripideas/22-affordable-towns-in-canada-where-you-can-retire-in-comfort/ss-AA1VAEN1" class="article-link" target="_blank" rel="noopener">Read Article →</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-thumb" style="background:linear-gradient(135deg,#1d5c3a,#2e8b57);">💚</div>
+        <div class="article-body">
+          <span class="article-category">Health &amp; Lifestyle</span>
+          <p class="article-title">25 Canadian towns where people live longer — and why</p>
+          <a href="https://www.msn.com/en-ca/health/other/25-canadian-towns-where-people-live-longer-and-why/ss-AA1I8eB9" class="article-link" target="_blank" rel="noopener">Read Article →</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-thumb" style="background:linear-gradient(135deg,#C0392B,#8B1A11);">✈️</div>
+        <div class="article-body">
+          <span class="article-category">Travel</span>
+          <p class="article-title">Canada Strong Pass — tourism discounts coming back in June</p>
+          <a href="https://www.msn.com/en-ca/travel/north-america-travel/canada-strong-pass-offering-tourism-discounts-coming-back-in-june/ar-AA23L9Yo" class="article-link" target="_blank" rel="noopener">Read Article →</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-thumb" style="background:linear-gradient(135deg,#8B1A11,#C0392B);">🏆</div>
+        <div class="article-body">
+          <span class="article-category">Quality of Life</span>
+          <p class="article-title">Canada ranked top 5 in the world for quality of life</p>
+          <a href="https://cultmtl.com/2025/07/canada-has-been-named-the-country-with-the-fifth-highest-quality-of-life-in-the-world-best-countries-denmark-sweden-switzerland-norway/" class="article-link" target="_blank" rel="noopener">Read Article →</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-thumb" style="background:linear-gradient(135deg,#5b2d8e,#8e44ad);">🏳️‍🌈</div>
+        <div class="article-body">
+          <span class="article-category">LGBTQ+</span>
+          <p class="article-title">Canada named the most LGBTQ+ friendly country in the world</p>
+          <a href="https://www.thepinknews.com/2025/04/22/lgbtq-safe-countries-uruguay-malta-iceland-canada/" class="article-link" target="_blank" rel="noopener">Read Article →</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-thumb" style="background:linear-gradient(135deg,#1a1a1a,#3d3d3d);">🍁</div>
+        <div class="article-body">
+          <span class="article-category">Immigration</span>
+          <p class="article-title">Why Canada is one of the most immigrant-friendly countries in the world</p>
+          <a href="https://canxglobal.com/why-canada-is-one-of-the-most-immigrant-friendly-countries-in-the-world/" class="article-link" target="_blank" rel="noopener">Read Article →</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-thumb" style="background:linear-gradient(135deg,#1a3a5c,#1f5f8b);">🌆</div>
+        <div class="article-body">
+          <span class="article-category">Liveable Cities</span>
+          <p class="article-title">Vancouver, Toronto &amp; Montreal among world's most liveable cities 2025</p>
+          <a href="https://immigration.ca/canadas-cities-rank-highly-in-global-liveability-index-despite-calgary-drop/" class="article-link" target="_blank" rel="noopener">Read Article →</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-thumb" style="background:linear-gradient(135deg,#2d5a27,#3a7a32);">🍁</div>
+        <div class="article-body">
+          <span class="article-category">Immigration</span>
+          <p class="article-title">Why Canada continues to rank as a top destination for immigrants</p>
+          <a href="https://immigcanada.com/why-canada-continues-to-rank-as-a-top-destination-for-immigrants/" class="article-link" target="_blank" rel="noopener">Read Article →</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-thumb" style="background:linear-gradient(135deg,#3b2a1a,#6b4226);">📜</div>
+        <div class="article-body">
+          <span class="article-category">History</span>
+          <p class="article-title">The Underground Railroad Went All the Way to Canada</p>
+          <a href="https://www.abhmuseum.org/the-underground-railroad-went-all-the-way-to-canada-and-a-new-photo-exhibit-preserves-that-legacy/" class="article-link" target="_blank" rel="noopener">Read Article →</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-thumb" style="background:linear-gradient(135deg,#2c4a6e,#3d6b99);">🕊️</div>
+        <div class="article-body">
+          <span class="article-category">History</span>
+          <p class="article-title">Vietnam Draft Dodgers Who Settled in Canada Have Influenced Small Towns for Generations</p>
+          <a href="https://theworld.org/stories/2023/03/28/vietnam-draft-dodgers-who-settled-canada-have-influenced-some-its-small-towns" class="article-link" target="_blank" rel="noopener">Read Article →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GUIDES GRID -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Guides &amp; Resources</div>
+      <h2>Everything you need to know <em>before you go.</em></h2>
+    </div>
+    <div class="guides-grid fade-in-group">
+
+      <div class="guide-card">
+        <div class="category">Big Picture</div>
+        <h3>Why Americans Are Moving to Canada in 2026</h3>
+        <p>A straightforward look at what's driving the surge in US-to-Canada relocations, what the process actually involves, and what to realistically expect.</p>
+        <a href="contact.html" class="read-more">Get personalized guidance →</a>
+      </div>
+
+      <div class="guide-card">
+        <div class="category">Where to Live</div>
+        <h3>The Best Canadian Cities for Americans</h3>
+        <p>From Toronto to Vancouver to smaller cities like Halifax and Victoria — how to choose the right city based on climate, cost, jobs, and lifestyle.</p>
+        <a href="contact.html" class="read-more">Get personalized guidance →</a>
+      </div>
+
+      <div class="guide-card">
+        <div class="category">Healthcare</div>
+        <h3>Canadian Healthcare — What Americans Need to Know</h3>
+        <p>How provincial health insurance works, what the waiting periods are, and what's not covered. The things Americans are most surprised by.</p>
+        <a href="contact.html" class="read-more">Get personalized guidance →</a>
+      </div>
+
+      <div class="guide-card">
+        <div class="category">Families</div>
+        <h3>Moving to Canada with Kids</h3>
+        <p>Schools, daycare, activities, and healthcare for children. What the Canadian education system looks like and how to get your kids settled quickly.</p>
+        <a href="contact.html" class="read-more">Get personalized guidance →</a>
+      </div>
+
+      <div class="guide-card">
+        <div class="category">Pets</div>
+        <h3>Moving to Canada with Pets — A Quick Overview</h3>
+        <p>The basics of bringing dogs, cats, and other animals into Canada — including documentation, border crossing, and what to do when you arrive.</p>
+        <a href="contact.html" class="read-more">Get personalized guidance →</a>
+      </div>
+
+      <div class="guide-card">
+        <div class="category">Vehicles</div>
+        <h3>How to Import Your Car into Canada</h3>
+        <p>The RIV process, CBSA requirements, compliance modifications, and whether it's worth importing vs. selling and buying new.</p>
+        <a href="contact.html" class="read-more">Get personalized guidance →</a>
+      </div>
+
+      <div class="guide-card">
+        <div class="category">LGBTQ+</div>
+        <h3>LGBTQ+ Life in Canada — Rights, Cities &amp; Community</h3>
+        <p>Canada's legal framework, the most welcoming cities, and how to find community. What makes Canada stand out for LGBTQ+ newcomers.</p>
+        <a href="contact.html" class="read-more">Get personalized guidance →</a>
+      </div>
+
+      <div class="guide-card">
+        <div class="category">Finances</div>
+        <h3>What Happens to Your US Credit Score in Canada</h3>
+        <p>Your US credit history doesn't follow you. Here's how Canadian credit works, how long it takes to build, and what to do in the meantime.</p>
+        <a href="contact.html" class="read-more">Get personalized guidance →</a>
+      </div>
+
+      <div class="guide-card">
+        <div class="category">Taxes</div>
+        <h3>US Taxes After Moving to Canada — What You Need to Know</h3>
+        <p>The basics of dual filing obligations, departure tax, and what happens to your 401k when you leave. An overview with referrals to licensed professionals.</p>
+        <a href="contact.html" class="read-more">Get personalized guidance →</a>
+      </div>
+
+      <div class="guide-card">
+        <div class="category">Family</div>
+        <h3>Can I Sponsor My Parents to Come to Canada?</h3>
+        <p>An overview of parent and grandparent sponsorship options, the Super Visa, and what the process looks like at a high level.</p>
+        <a href="contact.html" class="read-more">Get personalized guidance →</a>
+      </div>
+
+      <div class="guide-card">
+        <div class="category">🏦 Banking</div>
+        <h3>Opening a Canadian Bank Account as a New Arrival</h3>
+        <p>The major banks, what you need to open an account before or after you land, and which banks are most newcomer-friendly.</p>
+        <a href="contact.html" class="read-more">Get personalized guidance →</a>
+      </div>
+
+      <div class="guide-card">
+        <div class="category">💼 Work</div>
+        <h3>Working in Canada — Licences, Credentials &amp; Job Markets</h3>
+        <p>What Americans need to know about credential recognition, job markets by province, and finding work after you arrive.</p>
+        <a href="contact.html" class="read-more">Get personalized guidance →</a>
+      </div>
+
+    </div>
+
+    <!-- CTA BOX -->
+    <div class="cta-box fade-in">
+      <h3>This is just the beginning.</h3>
+      <p>Our advisors are with you every step of the way — in your language, on your timeline, for every detail of your move.</p>
+      <a href="contact.html" class="btn btn-primary">Book a Free 15-Min Call →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO SECTION with quote -->
+<div style="height:340px;overflow:hidden;position:relative;">
+  <img src="images/family-baby.jpg" alt="Happy family in Canada" style="width:100%;height:100%;object-fit:cover;object-position:center center;">
+  <div style="position:absolute;inset:0;background:rgba(26,26,26,0.35);display:flex;align-items:center;justify-content:center;">
+    <div style="text-align:center;color:#fff;padding:2rem;max-width:700px">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3vw,2.4rem);font-style:italic;margin-bottom:1rem;line-height:1.3">"Canada welcomed us like I didn't expect. The transition was hard, but having someone who knew exactly what to do made all the difference."</p>
+      <span style="font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;opacity:.7">— Maria, Ohio → Ottawa, ON</span>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM CTA -->
+<section class="cta-section dark">
+  <h2>Ready to start planning your <em>move?</em></h2>
+  <p>Book a free 15-minute call. We'll help you understand your options and take the next step.</p>
+  <div class="btn-group" style="justify-content:center">
+    <a href="contact.html" class="btn btn-primary">Book a Free Call</a>
+    <a href="packages.html" class="btn btn-ghost-white">Browse Packages →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap"><img src="images/logo.png" alt="Canada Immigration Concierge" class="footer-logo"></div>
+        <p>Your life in Canada — fully supported.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="immigration.html">Immigration Applications</a>
+        <a href="citizenship-by-descent.html">Canadian Citizenship</a>
+        <a href="packages.html">Packages &amp; Pricing</a>
+        <a href="moving-to-canada.html">Moving to Canada</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Canadian Immigration Concierge · <a href="mailto:hello@canadianimmigrationconcierge.ca">hello@canadianimmigrationconcierge.ca</a></p>
+      <p class="footer-legal">Non-legal services only. Not a law firm or immigration consultancy. Licensed immigration services provided by independent RCIC and lawyer partners. All prices in USD.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>
