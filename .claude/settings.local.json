@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/anna smith/Downloads/**)",
+      "Read(//c/Users/anna smith/**)",
+      "Bash(grep -E \"\\\\.\\(png|jpg|jpeg|webp|svg\\)$\")",
+      "Bash(start chrome *)",
+      "WebSearch",
+      "Bash(git add *)",
+      "Bash(git check-ignore *)"
+    ]
+  }
+}
