@@ -29,22 +29,21 @@
         🌈 LGBTQ+ Support<br>
         🌍 Cultural &amp; Community Connection<br>
         🏔 Lifestyle &amp; Regional Matching<br>
-        📋 Immigration Applications (via RCIC partners)`,
+        🍁 Immigration pathway overview &amp; licensed referrals (always free)`,
       link: { text: 'See all services →', href: 'services.html' }
     },
     {
       keywords: ['immigration', 'visa', 'express entry', 'work permit', 'study permit', 'pr', 'permanent residency', 'citizenship', 'rcic', 'lawyer', 'application', 'sponsorship', 'nominee'],
-      reply: `We are not licensed immigration consultants — but we have a trusted network of Regulated Canadian Immigration Consultants (RCICs) and immigration lawyers.<br><br>
-        We handle: Express Entry, Family Sponsorship, Work Permits, Study Permits, Provincial Nominee Programs, and PR/Citizenship applications.<br><br>
-        When you need application help, your advisor introduces you to the right licensed partner. <strong>The referral is always free.</strong>`,
-      link: { text: 'Learn about our RCIC partner network →', href: 'immigration.html' }
+      reply: `We are not licensed immigration consultants or lawyers — but we can give you a general overview of Canada's main immigration pathways and help you understand what's out there.<br><br>
+        When you're ready to move forward with an application, we'll connect you with a licensed RCIC or Canadian immigration lawyer from our trusted partner network. <strong>The referral is always free.</strong>`,
+      link: { text: 'See immigration pathways overview →', href: 'immigration.html' }
     },
     {
       keywords: ['book', 'call', 'consult', 'appointment', 'schedule', 'meeting', 'talk', 'speak', 'contact', 'reach out', 'get started', 'start'],
       reply: `We'd love to chat! 🙂<br><br>
         📞 <strong>Free 15-min Intro Call</strong> — No obligation. We discuss your move and explain exactly how we can help.<br><br>
-        📅 <strong>Discovery Session — $75 USD</strong> — 30 minutes, in-depth.<br><br>
-        📋 <strong>Strategy Session — $149 USD</strong> — 60 minutes + written plan.<br><br>
+        📅 <strong>Discovery Session — $65 USD</strong> — 30 minutes, in-depth.<br><br>
+        📋 <strong>Strategy Session — $195 USD</strong> — 60 minutes + written plan.<br><br>
         Paid consultation fees are credited toward any package purchased within 30 days.`,
       link: { text: 'Book a call now →', href: 'contact.html' }
     },
@@ -94,9 +93,9 @@
     {
       keywords: ['monthly', 'ongoing', 'subscription', 'plan', 'month', 'retainer', 'continue', 'after arrival'],
       reply: `We also offer monthly ongoing support plans:<br><br>
-        📌 <strong>Essential — $699/month</strong><br>2–3 calls/month, email support, all categories.<br><br>
-        ⭐ <strong>Signature — $1,299/month</strong><br>Weekly calls, WhatsApp access, full planning support.<br><br>
-        💎 <strong>Concierge — $2,299/month</strong><br>Dedicated advisor, priority same-day response.<br><br>
+        📌 <strong>Essential — $499/month</strong><br>2–3 calls/month, email support, all categories.<br><br>
+        ⭐ <strong>Signature — $799/month</strong><br>Weekly calls, WhatsApp access, full planning support.<br><br>
+        💎 <strong>Concierge — $1,499/month</strong><br>Dedicated advisor, priority same-day response.<br><br>
         Cancel or pause anytime. Great for people still planning or wanting continued support after arrival.`,
       link: { text: 'See all monthly plans →', href: 'packages.html' }
     },
@@ -135,7 +134,7 @@
   const quickReplies = [
     { label: '💰 Packages & Pricing', key: 'package' },
     { label: '🏡 Services We Offer', key: 'service' },
-    { label: '📋 Immigration Applications', key: 'immigration' },
+    { label: '🍁 Immigration Pathways', key: 'immigration' },
     { label: '📞 Book a Free Call', key: 'book' },
     { label: '🍁 Where to Live in Canada', key: 'where' },
     { label: '👨‍👩‍👧 Moving with Kids', key: 'school' },
