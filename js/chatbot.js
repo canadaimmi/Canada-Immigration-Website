@@ -13,8 +13,7 @@
       reply: `We offer three flat-fee packages:<br><br>
         🥉 <strong>Soft Landing — $1,199 USD</strong><br>For singles &amp; couples. 30 days support.<br><br>
         🥇 <strong>Family Settlement — $1,999 USD</strong> ⭐ Most Popular<br>Everything families need. School search, healthcare, 60 days support.<br><br>
-        💎 <strong>Premium Concierge — $2,999 USD</strong><br>White-glove service, 90 days, everything covered.<br><br>
-        Payment plans available (3, 6, or 9 months). All prices in USD.`,
+        💎 <strong>Premium Concierge — $2,999 USD</strong><br>White-glove service, 90 days, everything covered.`,
       link: { text: 'View all packages & pricing →', href: 'packages.html' }
     },
     {
