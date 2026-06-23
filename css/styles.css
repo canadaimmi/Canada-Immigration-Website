@@ -317,6 +317,7 @@ em { font-style: italic; }
   background-size: cover;
   background-position: center;
   background-color: var(--charcoal);
+  filter: brightness(1.12) saturate(1.05);
 }
 .hero { min-height: 520px; }
 .page-hero { min-height: 520px; background-position: center 35%; }
@@ -341,6 +342,7 @@ em { font-style: italic; }
 }
 .collage-grid div {
   background-size: cover;
+  filter: brightness(1.12) saturate(1.05);
 }
 .collage-overlay {
   position: absolute;
