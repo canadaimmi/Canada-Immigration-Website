@@ -157,7 +157,7 @@
       </button>
       <div id="cic-chat-panel" aria-hidden="true">
         <div class="cic-header">
-          <img src="images/logo.png" alt="Canada Immigration Concierge" class="cic-header-logo">
+          <img src="images/logo.png" alt="Immigration Concierge Canada" class="cic-header-logo">
           <div class="cic-header-info">
             <strong>Immigration Assistant</strong>
             <span class="cic-status">● Online — responds instantly</span>
@@ -513,7 +513,7 @@
 
     // Welcome message after short delay
     setTimeout(() => {
-      addMessage(`👋 Hi! I'm the Canada Immigration Concierge assistant.<br><br>
+      addMessage(`👋 Hi! I'm the Immigration Concierge Canada assistant.<br><br>
         I can help you learn about our services, packages, and moving to Canada. What would you like to know?`, 'bot');
     }, 400);
   }

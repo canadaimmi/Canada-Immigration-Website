@@ -377,6 +377,14 @@ em { font-style: italic; }
   line-height: 1.15;
   text-shadow: 0 2px 20px rgba(0,0,0,0.35);
 }
+.hero-subheading {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+  color: rgba(255,255,255,0.9);
+  max-width: 640px;
+  margin: 0 auto 1.5rem;
+}
 .hero-sub, .page-hero p {
   font-size: 18px;
   color: rgba(255,255,255,0.80);
