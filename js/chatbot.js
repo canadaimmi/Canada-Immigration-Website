@@ -127,7 +127,7 @@
       • <a href="services.html" style="color:#C0392B;font-weight:600">See all services</a><br>
       • <a href="contact.html" style="color:#C0392B;font-weight:600">Book a free 15-min call</a><br>
       • <a href="faq.html" style="color:#C0392B;font-weight:600">Read the FAQ</a><br><br>
-      Or email us directly at <a href="mailto:hello@canadianimmigrationconcierge.ca" style="color:#C0392B;font-weight:600">hello@canadianimmigrationconcierge.ca</a>`
+      Or email us directly at <a href="mailto:info@immigrationconciergecanada.com" style="color:#C0392B;font-weight:600">info@immigrationconciergecanada.com</a>`
   };
 
   const quickReplies = [
