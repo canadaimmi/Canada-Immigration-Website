@@ -71,6 +71,22 @@
     }
     .contact-form .btn-primary:hover { background: #8B1A11 !important; border-color: #8B1A11 !important; }
     .contact-footer-note { color: rgba(255,255,255,0.50) !important; font-size: 13px !important; text-align: center; }
+
+    /* Form success / error states */
+    .contact-form-success p { color: rgba(255,255,255,0.90) !important; font-size: 16px !important; margin: 0 !important; line-height: 1.7 !important; }
+    .contact-form-error {
+      display: none;
+      background: rgba(196,18,48,0.15) !important;
+      border: 1.5px solid rgba(196,18,48,0.45) !important;
+      border-radius: 8px !important;
+      padding: 0.9rem 1.1rem !important;
+      color: #ffffff !important;
+      font-size: 0.85rem !important;
+      line-height: 1.6 !important;
+      margin-top: 0.75rem;
+      text-align: center;
+    }
+    .contact-form-error a { color: #ffffff !important; text-decoration: underline !important; }
   </style>
 </head>
 <body>
@@ -176,7 +192,12 @@
 
       <!-- RIGHT: Form -->
       <div class="fade-in">
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="49c1666c-98c3-41f1-98a1-bc6c2bc804cc">
+          <input type="hidden" name="subject" value="New enquiry — Immigration Concierge Canada">
+          <input type="hidden" name="from_name" value="ICC Website">
+          <input type="checkbox" name="botcheck" style="display:none;">
+
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">First Name *</label>
@@ -247,8 +268,14 @@
             Send Message
           </button>
 
+          <div id="contactFormError" class="contact-form-error">Something went wrong sending your message. Please try again, or email us directly at <a href="mailto:info@immigrationconciergecanada.com">info@immigrationconciergecanada.com</a>.</div>
+
           <p class="contact-footer-note" style="margin-top:0.75rem">We respond within 24 hours · All prices in USD · Non-legal services</p>
         </form>
+
+        <div id="contactFormSuccess" class="contact-expect contact-form-success" style="display:none;text-align:center;">
+          <p>✓ Thank you! We've received your message and will reply within 24 hours.</p>
+        </div>
       </div>
 
     </div>

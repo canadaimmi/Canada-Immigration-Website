@@ -138,19 +138,35 @@ document.querySelectorAll('.fade-in-group').forEach(group => {
   groupObserver.observe(group);
 });
 
-// CONTACT FORM
+// CONTACT FORM — Web3Forms
 const contactForm = document.getElementById('contactForm');
-contactForm?.addEventListener('submit', e => {
+contactForm?.addEventListener('submit', async e => {
   e.preventDefault();
   const btn = contactForm.querySelector('button[type="submit"]');
+  const errorBox = document.getElementById('contactFormError');
+  const successBox = document.getElementById('contactFormSuccess');
   const orig = btn.textContent;
   btn.textContent = 'Sending…';
   btn.disabled = true;
+  if (errorBox) errorBox.style.display = 'none';
 
-  // Simulate send (replace with Netlify Forms / Formspree / etc.)
-  setTimeout(() => {
-    btn.textContent = "✓ Message sent! We'll respond within 24 hours.";
-    btn.style.background = '#2e7d32';
-    btn.style.borderColor = '#2e7d32';
-  }, 900);
+  try {
+    const res = await fetch(contactForm.action, {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: new FormData(contactForm)
+    });
+    const result = await res.json();
+
+    if (result.success) {
+      contactForm.style.display = 'none';
+      if (successBox) successBox.style.display = 'block';
+    } else {
+      throw new Error(result.message || 'Submission failed');
+    }
+  } catch (err) {
+    if (errorBox) errorBox.style.display = 'block';
+    btn.textContent = orig;
+    btn.disabled = false;
+  }
 });
