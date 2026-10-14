@@ -542,9 +542,6 @@ em { font-style: italic; }
   text-decoration: none;
   overflow: hidden;
 }
-.photo-card:last-child {
-  grid-column: 2;
-}
 .photo-card-overlay {
   position: absolute;
   inset: 0;
@@ -567,7 +564,7 @@ em { font-style: italic; }
   letter-spacing: 0.06em;
 }
 .photo-card:hover .photo-card-title { color: #fff; }
-@media (max-width: 768px) { .photo-grid { grid-template-columns: repeat(2, 1fr); } .photo-card:last-child { grid-column: auto; } }
+@media (max-width: 768px) { .photo-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .photo-card { height: 200px; } }
 
 /* ============================================================
